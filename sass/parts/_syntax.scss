@@ -51,7 +51,7 @@ article{
 		font-size: 0.9em;
 		padding: 1px 3px;
 		margin: 0 3px;
-		@include border-radius(5px);
+		//@include border-radius(5px);
 	}
 	pre{
 		font-size: 1 / 0.9em;
@@ -59,13 +59,13 @@ article{
 		margin-top: 10px;
 		padding: 5px 15px;
 		overflow-x: auto;
-		@include border-radius(5px);
+		//@include border-radius(5px);
 		code{
 			background: none;
 			border: none;
 			padding: 0;
 			margin: 0;
-			@include border-radius(0);
+			//@include border-radius(0);
 		}
 	}
 }
@@ -75,7 +75,7 @@ figure.code{
 	border: 1px solid $pre-border;
 	margin-top: 10px;
 	padding: 5px 15px;
-	@include border-radius(5px);
+	//@include border-radius(5px);
 	figcaption{
 		font-size: 0.9em;
 		position: relative;
@@ -99,7 +99,7 @@ figure.code{
 		border: none;
 		padding: 0;
 		margin: 0;
-		@include border-radius(0);
+		//@include border-radius(0);
 	}
 	.highlight{
 		overflow-x: auto;
@@ -121,6 +121,7 @@ figure.code{
 	td.code{
 		width: 100%;
 		padding-left: 15px;
+		overflow-x: auto;
 	}
 }
 .entry-content .gist{
@@ -131,15 +132,16 @@ figure.code{
 	border: 1px solid $pre-border;
 	position: relative;
 	overflow: hidden;
-	@include border-radius(5px);
+	//@include border-radius(5px);
 	.gist-file{
 		margin: 0;
 		.gist-data{
 			background: none;
 			border: none;
 			pre{
-				font: 0.9em $font-mono;
-				line-height: 1.5;
+				font: $font-mono;
+				line-height: inherit;
+				text-align: left;
 			}
 		}
 		.gist-meta{
