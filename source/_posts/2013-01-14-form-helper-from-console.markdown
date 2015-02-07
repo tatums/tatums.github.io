@@ -3,7 +3,7 @@ layout: post
 title: "Form helper from console"
 date: 2013-01-14 09:00:54 -0600
 comments: true
-categories:
+categories: Rails forms
 ---
 
 

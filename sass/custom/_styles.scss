@@ -3,3 +3,34 @@
 // By default this file should be EMPTY!!!
 // Please edit specifications in place if you are building an other theme!
 
+
+// TODO - Move these into the gem
+
+article .entry-content{
+    border-top: 1px solid #e5e5e5;
+    margin-top: 1em;
+    line-height: 1.8;
+    text-align: inherit;
+}
+
+.post .meta {
+  top: 0px;
+  line-height: 1.5;
+  font-size: 0.9em;
+  color: #999;
+}
+
+
+article h2.title {
+    margin-bottom: 0;
+  }
+
+.article-heading {
+  .title{
+    float:none;
+  }
+  .meta{
+    float:none;
+  }
+
+}

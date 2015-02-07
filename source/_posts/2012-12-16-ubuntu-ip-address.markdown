@@ -3,7 +3,7 @@ layout: post
 title: "Ubuntu ip-address"
 date: 2012-12-16 09:14:33 -0600
 comments: true
-categories:
+categories: linux networking
 ---
 
 ```bash

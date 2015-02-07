@@ -3,7 +3,7 @@ layout: post
 title: "Failed to Connect to a Master Node at Localhost:27017"
 date: 2012-12-31 09:05:06 -0600
 comments: true
-categories:
+categories: mongo
 ---
 
 

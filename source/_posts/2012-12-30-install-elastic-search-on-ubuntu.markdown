@@ -3,7 +3,7 @@ layout: post
 title: "Install Elastic Search on Ubuntu"
 date: 2012-12-30 09:07:42 -0600
 comments: true
-categories:
+categories: linux Ubuntu
 ---
 
 Update Package Manager

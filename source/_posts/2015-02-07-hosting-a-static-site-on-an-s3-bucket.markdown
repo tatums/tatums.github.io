@@ -3,7 +3,7 @@ layout: post
 title: "Hosting a static site on an S3 bucket"
 date: 2015-02-07 06:33:56 -0600
 comments: true
-categories: ["AWS"]
+categories: AWS
 ---
 
 I love the recent shift from dynamic sites to static sites. This doesn't work for all sites. But why have a blog that gets dynamically build on each request.  It's Not needed.

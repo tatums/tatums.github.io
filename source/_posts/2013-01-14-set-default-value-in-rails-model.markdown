@@ -3,7 +3,7 @@ layout: post
 title: "Set default value in rails model"
 date: 2013-01-14 08:00:37 -0600
 comments: true
-categories:
+categories: Rails models
 ---
 
 

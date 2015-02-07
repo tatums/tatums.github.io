@@ -3,7 +3,7 @@ layout: post
 title: "Convert a Date String to Ruby Date"
 date: 2013-01-15 08:54:26 -0600
 comments: true
-categories:
+categories: Date
 ---
 
 ```ruby

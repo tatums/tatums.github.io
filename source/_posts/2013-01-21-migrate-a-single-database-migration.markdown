@@ -3,7 +3,7 @@ layout: post
 title: "Migrate a Single Database Migration"
 date: 2013-01-21 08:43:00 -0600
 comments: true
-categories:
+categories: Rails migration
 ---
 ```ruby
 rails console
