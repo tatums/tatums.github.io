@@ -24,6 +24,7 @@ $type-border: #ddd !default;
 
 /* Navigation */
 $nav-bg: #fff !default;
+$nav-bg: red !default;
 $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
 $nav-color: darken($nav-bg, 55) !default;
 $nav-color-hover: darken($nav-color, 35) !default;
