@@ -5,7 +5,12 @@
 
 
 // TODO - Move these into the gem
-
+.pull-left{
+  float:left;
+}
+.pull-right{
+  float:right;
+}
 #comment{
   background-color: #fff;
   padding: 1em;
