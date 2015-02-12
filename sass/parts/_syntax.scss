@@ -57,7 +57,7 @@ article{
 		font-size: 1 / 0.9em;
 		line-height: 1.5;
 		margin-top: 10px;
-		padding: 5px 15px;
+		//padding: 5px 15px;
 		overflow-x: auto;
 		//@include border-radius(5px);
 		code{
@@ -71,10 +71,11 @@ article{
 }
 
 figure.code{
-	background: $pre-bg;
+	//background: $pre-bg;
 	border: 1px solid $pre-border;
 	margin-top: 10px;
-	padding: 5px 15px;
+  padding: 0.5em;
+	//padding: 5px 15px;
 	//@include border-radius(5px);
 	figcaption{
 		font-size: 0.9em;
