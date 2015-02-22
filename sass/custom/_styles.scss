@@ -1,47 +1,57 @@
 // This File is imported last, and will override other styles in the cascade
-// Add styles here to customize your blog
-// By default this file should be EMPTY!!!
-// Please edit specifications in place if you are building an other theme!
+// Add styles here to make changes without digging in too much
+html, body, p, h1, h2, h3, span, ul, ol, li {
+  -webkit-font-smoothing: antialiased;
+  //font-family: 'Indie Flower', cursive, Georgia, Cambria, "Times New Roman", Times, serif;
+  //font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: rgba(46,48,58,0.96);
+}
+#content h1{
+  font-size: 1.95em;
+  font-family: 'Indie Flower', cursive;
+}
+.sidebar h1 {
+  font-size: 1.5em;
+  font-family: 'Indie Flower', cursive;
+}
+
+ol li{ margin-left: 2em; padding-left: 0.25em; list-style-type: decimal}
 
 
-// TODO - Move these into the gem
-.pull-left{
-  float:left;
+body p {
+  //font-family: "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.2em;
+  line-height: 1.56em;
 }
-.pull-right{
-  float:right;
+
+
+#content{
+  margin-top: 4em;
 }
-#comment{
+#header h1{ margin-top:0px }
+
+body{background: #f0f0f0 url(/images/bg-noise.gif) repeat -70% 0;}
+article {background-color: white;}
+
+body a:hover { text-decoration: none;}
+.entry-title{ margin-top:5px }
+
+#header h1 a {
+  color: #fff;
+  background: linear-gradient(#ff0000,#ff0000) left repeat;
+  padding: 0.15em;
+  font-size: 0.8em;
+}
+article {
+  padding: 0 1em;
   background-color: #fff;
-  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #fff;
+  position: relative;
 }
 
-
-article .entry-content{
-    border-top: 1px solid #e5e5e5;
-    margin-top: 1em;
-    line-height: 1.8;
-    text-align: inherit;
+body {
 }
 
-.post .meta {
-  top: 0px;
-  line-height: 2;
-  font-size: 0.9em;
-  color: #999;
-}
-
-
-article h2.title {
-    margin-bottom: 0;
-  }
-
-.article-heading {
-  .title{
-    float:none;
-  }
-  .meta{
-    float:none;
-  }
-
-}

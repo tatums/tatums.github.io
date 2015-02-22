@@ -6,7 +6,7 @@ comments: true
 categories: angularjs
 ---
 
-{% img pull-left /images/angularjs.png %}
+{% img pull-left /images/content/angularjs.png %}
 
 Lately I've been writing a lot of angularjs.  At my work, we had a great debeate.. which client side framework should we use.  It came down to angularjs or ember. Ultimately, we choose angular.  I'm happy we did.  Angularjs is awesome.  I would have been just as happy to settle with ember. Two way binding is a game changer.
 
