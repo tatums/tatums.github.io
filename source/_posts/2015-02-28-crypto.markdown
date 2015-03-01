@@ -18,74 +18,141 @@ _From Wikipedia_
 </a>
 
 
+There are two main uses for public key crypto.
+
+1. Public key encryption.  A message is encrypted with a recipient's public key. The message can only be unencrypted by the holder of the private key.
+
+2. Digital Signature.  A message is signed with a the senders private key to generate a cryptographic hash. Using the public key, one can verify the message was indeed sent with the coresponding private key and can ensure the message has not been altered.
 
 
-First lets generate a key.  With this key we can generate as many public keys that we like.
-```
-require "openssl"
-key = OpenSSL::PKey::RSA.new(2048)
-```
 
-Now lets write the private key to disk.
+### Keys ###
+
+First, let's generate some keys. From the private key we will also generate the public key.  Remember the private and public key are mathematically linked.  This is important.
+
 ```ruby
+[1] pry(main)> require "openssl"
+=> true
+[2] pry(main)> private_key = OpenSSL::PKey::RSA.new(2048)
+=> #<OpenSSL::PKey::RSA:0x007ff03b379c30>
+[3] pry(main)> public_key = private_key.public_key
+=> #<OpenSSL::PKey::RSA:0x007ff03c3330b8>
+```
+
+Great.  Now we have a key pair.  We can write these keys to disk if we like.
+
+```ruby
+## write the private key to disk.
 File.open("~/.ssh/private_key", "w+") do |f|
-  f.write key.to_pem
+  f.write private_key.to_pem
 end
-```
-
-And the public key.
-```ruby
+# write the public key to disk.
 File.open("~/.ssh/public_key.pem", "w+") do |f|
-  f.write key.public_key.to_pem
+  f.write public_key.to_pem
 end
 ```
 
-Lets create a message and encrypt it with the private key.
+We can read the key in from key like so.
 ```ruby
-[1] pry(main)> data = "Some private data is here."
-=> "Some private data is here."
-[2] pry(main)> encrypted = key.private_encrypt(data)
-=> "\x89\x10m\xE9a\xC5`\xFD\xAC\x9Fd/\xFA\xAB5\xEA;?\x10\x9A\x81\x19\xA4\xD6\xCB\x15\a\xEE\"?j=\xD4\x13\rhPq\xDB\xAC[?\xEFNV?\xEF\x1D'\xBE\xE9\xE6\x00\x1A\x06\x94\xBF\xB2\x90\x98.\xEF\xEC\xB6\xB57\xB8\xDD:\r3\xA1\xDEw\x93s \xD0\xAE\x92\v\xE5\x9A\xAC\xD0iz\xFF\xBE\xA69\x01F\x8B_$\x86|\x16<\f\x96\xE3\xEB\x95q\x98\x90\x99\x95=3Ke[,06Y\x15\xA0\xA00\x90Yp\x91\x81t\xED\x86Z\xCD\xF0\x982\xB0(C\xA9\xEE\xB1\xF8\xEA\x8D\xF5;\x1D\a\x90) \xA72\xB0d\xCC\x89\xEC\xA9\xA9\xF4=I\xBER\xE1\x821\xBCi@\xC7O\x03W^\xDAq\xC1x\xCB;9\x1E\xCFw\x9A\xB9O\xDD\xF3\xDB\x8D\bi\xC8\xED\xC2\x8F\xC2Wt\xDC\xAFQ2\xAD\xF0\x9C\xC7NI\xA7\x81J\x8B\xD0\xCF%\xFD\xF7j\xC3\xF1\xA0\x9E\xC9\xD9sZ\xDD\x05\xEA\x11\xB8\xAC0d\xFFo\xEE\x90d9\xBF-\xB7\xD9\\\xAB\x82 6\x0E\x8C"
+key = OpenSSL::PKey::RSA.new(File.read("~/.ssh/private_key"))
 ```
-This will result in some encrypted binary data.
 
-Now we can unencrypt the message with the public key.
+### Public key enctryption ###
+
+We'll be encrypting a message with the public key. So it can only be unenctrypted by the owner of the private key.
 
 ```ruby
-pub = key.public_key
-
-[3] pry(main)> decrypted = pub.public_decrypt(encrypted)
-=> "Some private data is here."
-
+## Use the public key to encrypt a message
+[4] pry(main)> encrypted_data = public_key.public_encrypt("Some private data is here.")
+=> "\x9B\f\xD2\"\x02l\x0E\xFB\x18\xFA\xA2\xCC;\x9F\xC2r\xFA\x88\x94\\\xDBZY\x964\xE3\x13i\xDB\xB5\xB4<\x8E\xEC\xB8\xAB\"a\xE1\xE0\x01\x8Cb\xEC\xAE\x86\xC0!\x18\xC8\xA9\xDEB\e^\xCCe\x11\xDC\x19\x81\xDC\x98\x1EX\x11\xD6\"bUJ\xB0B\xED\x96\x03\x9F}\xF7I\xFD\x9F\x04\x04\xF4Q\xA7H\x9C\b\xC5\a\xE1\xA4\x02kx\xF46A% \xEB\xEB: \xD1\xA2\xFF\xA4$\xBDP\x9FR\xE9\xD3\x9F\r>\x8E5\xD9\x10\xE8\x9DYd\e`\x8E\xE0\xBD\xE5\\\x02\xF6\x83\v\x15\xD4m\x03\xCDJ\x9A*\xA6\xF5S9\xD2M\x10\xD5 7\x92\xCE\xF0\xB9<\xAFe\x9A\xAE\x8E`\xADW\x93\x91;HZ\xEB\xD8\xFF\xDE\x02\x10m\x9D\xF2*\tL2\xE2`K\xC8\x0E)O\x86\xDA\xAFk4\xD0\rN\xF3%}\xEAM\x15he\xDF\x0F\xC6\xE5\xAA$\x19\x03V\xBE\x0E~\x8ELv\x9C\xC7\xB4o\xA13\xE2\xDE\xE2t!]-\xC8\x88\xAF\xE3\xD5\xFD`T\xD9\xCDs\xFF\xAE(<\xBD\xB9"
 ```
+
+This will result in some unreadable binary data. Next we'll decrypt this data with the private key.
+
+```ruby
+## Use the private key to decrypt
+[5] pry(main)> private_key.private_decrypt(enc)
+=> "Some private data is here."
+```
+
 Nice!
 
-Ok, lets do it again. But this time... convert the binary data to a string, so it can be passed around the net.
+The public key can encrypt but cannot decrypt the message. This enctryption only works in one direction. Only the private key can decrypt that message. You can also encrypt messages with a private key. Those messages can be unenctrypted with the public key and the private key.
 
+Asymmetric public/private key encryption is slow and victim to attack in cases where it is used without padding or directly to encrypt larger chunks of data. Typical use cases for RSA encryption involve "wrapping" a symmetric key with the public key of the recipient who would "unwrap" that symmetric key again using their private key.
+
+NOTE - The enctrypted messages are in binary format. If we want to encode the data for transmission accoss the net, we'll want to use something like base64.
 ```ruby
-[4] pry(main)> require "base64"
+[6] pry(main)> require "base64"
 => true
-[5] pry(main)> enc_string = Base64.encode64(encrypted)
+[7] pry(main)> enc_string = Base64.encode64(encrypted)
 => "iRBt6WHFYP2sn2Qv+qs16js/EJqBGaTWyxUH7iI/aj3UEw1oUHHbrFs/705W\nP+8dJ77p5gAaBpS/spCYLu/strU3uN06DTOh3neTcyDQrpIL5Zqs0Gl6/76m\nOQFGi18khnwWPAyW4+uVcZiQmZU9M0tlWywwNlkVoKAwkFlwkYF07YZazfCY\nMrAoQ6nusfjqjfU7HQeQKSCnMrBkzInsqan0PUm+UuGCMbxpQMdPA1de2nHB\neMs7OR7Pd5q5T93z240Iacjtwo/CV3Tcr1EyrfCcx05Jp4FKi9DPJf33asPx\noJ7J2XNa3QXqEbisMGT/b+6QZDm/LbfZXKuCIDYOjA==\n"
-[6] pry(main)> dec_string = Base64.decode64(enc_string)
-=> "\x89\x10m\xE9a\xC5`\xFD\xAC\x9Fd/\xFA\xAB5\xEA;?\x10\x9A\x81\x19\xA4\xD6\xCB\x15\a\xEE\"?j=\xD4\x13\rhPq\xDB\xAC[?\xEFNV?\xEF\x1D'\xBE\xE9\xE6\x00\x1A\x06\x94\xBF\xB2\x90\x98.\xEF\xEC\xB6\xB57\xB8\xDD:\r3\xA1\xDEw\x93s \xD0\xAE\x92\v\xE5\x9A\xAC\xD0iz\xFF\xBE\xA69\x01F\x8B_$\x86|\x16<\f\x96\xE3\xEB\x95q\x98\x90\x99\x95=3Ke[,06Y\x15\xA0\xA00\x90Yp\x91\x81t\xED\x86Z\xCD\xF0\x982\xB0(C\xA9\xEE\xB1\xF8\xEA\x8D\xF5;\x1D\a\x90) \xA72\xB0d\xCC\x89\xEC\xA9\xA9\xF4=I\xBER\xE1\x821\xBCi@\xC7O\x03W^\xDAq\xC1x\xCB;9\x1E\xCFw\x9A\xB9O\xDD\xF3\xDB\x8D\bi\xC8\xED\xC2\x8F\xC2Wt\xDC\xAFQ2\xAD\xF0\x9C\xC7NI\xA7\x81J\x8B\xD0\xCF%\xFD\xF7j\xC3\xF1\xA0\x9E\xC9\xD9sZ\xDD\x05\xEA\x11\xB8\xAC0d\xFFo\xEE\x90d9\xBF-\xB7\xD9\\\xAB\x82 6\x0E\x8C"
-[7] pry(main)> pub.public_decrypt(dec_string)
-=> "Some private data is here."
 ```
 
-Very cool. Signing the message with the private key will allow many others to use the public key to verfiy the message came from the sender.
 
-We can also use this inversely.  We can use a public key to encrypt a message that only the private key can unencrypt.
+This works for small messages but if you try and encrpt a string larget than your key... you'll hit an errors. You could break up the string into smaller chunks and encrypt each chunk individually.  But this is not secure.  This is what cypher block chaining is for.  Below is an example.
 
 ```ruby
-[8] pry(main)> enc = pub.public_encrypt("I got ur message. Did u get mine?")
-=> "\aYx\xB53\xBA\xD9\xD5\xB2\xB2\xA4#5\e4\xE7\xC6\x86rG8\x91\xDDTC6C\xF5\xD2lC\xB1\xAE4\xF0 \xEFa\xAC\xBB\x97#\xF7I\xE1\x90E\xAF&]\x9E\xE8p.*A\xBDn\xE4\x15\t6i\x9Emm\xAE\xA0\xB2\xC8\xBB4\xB5E\xCA\xAA%\xA5mUv\va\x81\xF0Q\x93\xB0\x17\xA5q\x93\xFD>w\xD8\xB3\xADd\x85\x0E\x85\x96\xB2\xCC0\a\xD1\xDD[\xFE\v\x1F\xAC\xC8.\xBE)\xB6b\x9AZ%\xDF-\xD9\rt\xC796\xF3\x9Du\x7F\xE4/\x97\xB5\xDAw\xA1\xA9y\xE7\xE3\xCA\xABT\xE6g\xC9/\xB4\xA9\xAC\x04\xEF\x9CA<\x17\x8A#\x85\x16\xAA\xFC\x84\xB5\xE4a\xF8\x1C\x1F\xBF\xA8\xF2\x12\x01j\x80\xEA\x171\x96'Z\x9D\xB5\xA0\xBD\xF2\x8E\xDE\x96\xE4\x1A\xC0\xAC\xDC\xC6(\xBF\t\xA0+R\xEE\x03\x87X[\xD3\xD8^\xFDM5\xA3\x16n+\x83\xC3\x8C#\x97\xDD\x86\x82z[\xCD\xA2\x1D\x86\xCB\xDB\xEA\xD9TD\xC4\xA2\xB4g8\x96eO\xBE\xE6\xFC\x8C\xAB"
-[9] pry(main)> key.private_decrypt(enc)
-=> "I got ur message. Did u get mine?"
+cipher      = OpenSSL::Cipher.new 'AES-128-CBC'
+cipher.encrypt
+iv          = cipher.random_iv
+pwd         = 'tRiSsmiTp'
+salt        = OpenSSL::Random.random_bytes 16
+iter        = 20000
+key_len     = cipher.key_len
+digest      = OpenSSL::Digest::SHA256.new
 
-[10] pry(main)> pub.public_decrypt(enc)
-OpenSSL::PKey::RSAError: padding check failed
-from (pry):41:in `public_decrypt'
+key = OpenSSL::PKCS5.pbkdf2_hmac(pwd, salt, iter, key_len, digest)
+cipher.key = key
+
+File.open("enc-text.txt",'w') do |enc|
+  File.open("./plain.txt") do |f|
+     loop do
+       r = f.read(4096)
+       break unless r
+       enc << cipher.update(r)
+     end
+     enc << cipher.final
+  end
+end
 ```
+
+### Digital Signature ###
+
+Asymmetric digital signatures is a great way to verify integrity and authenticity of data. Create a keypair, send the public key to your receivers, and use this method to create a digital signature. By combining the data and the public key, you can verify that the signature was created by the owner of the private key.
+
+```ruby
+require "openssl"
+
+data = "A small brown fox."
+
+
+digest = OpenSSL::Digest::SHA256.new
+# To list available digests:
+#OpenSSL::Digest.constants
+
+signature = private_key.sign(digest, data)
+
+public_key.verify(digest, signature, data)
+# => true
+public_key.verify(digest, signature, data + "altered")
+# => false
+public_key.verify(digest, "altered" + signature, data)
+# => false
+```
+
+### More ###
+
+Using openssl library directly we can encrypt a file.
+```bash
+openssl aes-256-cbc -a -e -in source-file.txt -out enc-file.txt -k private_key
+```
+
+And to decrypt the file.
+```bash
+openssl aes-256-cbc -d -a -in enc-file.txt -out unenc-file.txt -k private_key
+```
+
+http://ruby-doc.org/stdlib-2.0/libdoc/openssl/rdoc/OpenSSL.html#label-PBKDF2+Password-based+Encryption
 
 
