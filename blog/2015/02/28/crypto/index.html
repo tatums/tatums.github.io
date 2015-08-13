@@ -5,18 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Helping me remember&#8230;</title>
+  <title>Crypto - Helping me remember&#8230;</title>
   <meta name="author" content="Tatum Szymczak">
 
   
-  <meta name="description" content="Occasionally I&rsquo;ll see things like this in a code base. 1
-2
-3
-4
-5
-6
-7
-def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;">
+  <meta name="description" content="I&rsquo;ve been playing around with Public-key cryptography or asymmetric cryptography. With revaltions from Eric Snowden on programs like PRISM, I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +18,7 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tatums.github.io">
+  <link rel="canonical" href="http://tatums.github.io/blog/2015/02/28/crypto">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="" rel="alternate" title="Helping me remember..." type="application/atom+xml">
@@ -95,101 +88,12 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 
   <div id="main" class="container">
     <div id="content">
-      <div class="row">
-  <div class="col-md-10">
-
-    <div class="blog-index">
-      
-      
-      
-        <article>
-          
+      <div>
+<article class="hentry" role="article">
+  
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/14/rails-configuration/">Rails Configuration</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-03-14T10:25:26-05:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:25 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>Occasionally I&rsquo;ll see things like this in a code base.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">api_host</span>
-</span><span class='line'>  <span class="k">if</span> <span class="no">Rails</span><span class="o">.</span><span class="n">production?</span>
-</span><span class='line'>    <span class="s2">&quot;http://prod.fake.api.url&quot;</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="s2">&quot;http://stag.fake.api.url&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I try to avoid writting methods like this.  Rails provides a nice way to set environment specific variables.</p>
-
-<p><a href="http://guides.rubyonrails.org/configuring.html#custom-configuration">http://guides.rubyonrails.org/configuring.html#custom-configuration</a></p>
-
-<p><code>config/environments/staging.rb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">api_host</span> <span class="o">=</span> <span class="s2">&quot;http://stag.fake.api.url&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>config/environments/production.rb</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">api_host</span> <span class="o">=</span> <span class="s2">&quot;http://prod.fake.api.url&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So now you can refactor the method to this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">api_host</span>
-</span><span class='line'>  <span class="no">Rails</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">api_host</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/28/crypto/">Crypto</a></h1>
+      <h1 class="entry-title">Crypto</h1>
     
     
       <p class="meta">
@@ -211,7 +115,7 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 <hr>
 
 
-  <div class="entry-content"><p>I&rsquo;ve been playing around with Public-key cryptography or asymmetric cryptography. With revaltions from Eric Snowden on programs like PRISM, I feel that encryption is more important than ever.</p>
+<div class="entry-content"><p>I&rsquo;ve been playing around with Public-key cryptography or asymmetric cryptography. With revaltions from Eric Snowden on programs like PRISM, I feel that encryption is more important than ever.</p>
 
 <p><em>From Wikipedia</em>
 <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">
@@ -426,454 +330,64 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 
 <p><a href="http://ruby-doc.org/stdlib-2.0/libdoc/openssl/rdoc/OpenSSL.html#label-PBKDF2+Password-based+Encryption">http://ruby-doc.org/stdlib-2.0/libdoc/openssl/rdoc/OpenSSL.html#label-PBKDF2+Password-based+Encryption</a></p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Tatum Szymczak</span></span>
+
+      <i class="fa fa-calendar-o"></i>
+
+
+
+
+
+<time class='entry-date' datetime='2015-02-28T16:05:01-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:05 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/encryption/'>encryption</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://tatums.github.io/blog/2015/02/28/crypto/" data-via="" data-counturl="http://tatums.github.io/blog/2015/02/28/crypto/" >Tweet</a>
   
   
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/21/ssh-config/">Ssh Config</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-02-21T07:15:39-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>7:15 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>I&rsquo;m in and out of servers all day.  One thing I&rsquo;ve found helpful is a ssh config file.  Create a file and place it <code>~/.ssh/config</code>.  You can add as many entries as you like.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Host s3-rsync
-</span><span class='line'>  HostName ec2-54-203-43-190.us-west-2.compute.amazonaws.com
-</span><span class='line'>  User ec2-user
-</span><span class='line'>  IdentityFile "~/.ssh/private-key-location"</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Host:</strong> A friendly name/handle which you&rsquo;ll use.</p>
-
-<p><strong>HostName:</strong> The remote server address you&rsquo;ll be connecting to.</p>
-
-<p><strong>User:</strong> The user you want to connect as.</p>
-
-<p><strong>IdentityFile:</strong> The private key to authenticate with.</p>
-
-<p>Once its all setup you can connect by typing: <code>ssh s3-rsync</code></p>
-
-<p>This is the same as: <code>ssh -i ~/.ssh/bs2-deploy ec2-user@ec2-54-203-43-190.us-west-2.compute.amazonaws.com</code>.</p>
+  
 </div>
-  
-  
 
-
-        </article>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/21/ssh-config/" title="Previous Post: ssh config">&laquo; ssh config</a>
       
       
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/11/rails-create-and-update/">Standard Rails Create Action</a></h1>
-    
-    
-      <p class="meta">
+        <a class="basic-alignment right" href="/blog/2015/03/14/rails-configuration/" title="Next Post: rails configuration">rails configuration &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-02-11T15:43:24-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:43 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>Rails has taught me some really good best practices. Let&rsquo;s look at a default rails create action</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'>  <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
-</span><span class='line'>    <span class="k">if</span> <span class="vi">@post</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="vi">@post</span><span class="p">,</span> <span class="ss">notice</span><span class="p">:</span> <span class="s1">&#39;Post was successfully created.&#39;</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">:new</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I try not to deviate too much from this and nor should you. If <code>@post.save</code> returns true. return a 201 status code.  If <code>@post.save</code> returns false re-render the :new action.  So you can let the user fix the form.</p>
-
-<p>Often I will see things like this.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">params</span><span class="o">[</span><span class="ss">:something</span><span class="o">]</span>
-</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">post_params</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="vi">@post</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">other_params</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="n">redirect_to</span> <span class="n">posts_path</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>At first glance this looks clean. But if you look closer. There is a subtle problem here. If the post object fails validation and fails to create, The action redirects to the index action where all new instaces are creating.  The @post object has lost any knowlege of the params and it will not get to oportunity to display the errors from the object.  You&rsquo;ll have to resort to things like <code>flash[:notice] = "@post.errors.full_messages.join()"</code>&hellip; ugh.</p>
-
-<p>Active record gives us a nice interface for displaying errors on an object.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-</span><span class='line'>  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span> <span class="o">=</span> <span class="no">Post</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil&gt;</span>
-</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span><span class="o">.</span><span class="n">valid?</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="kp">false</span>
-</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span><span class="o">.</span><span class="n">errors</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;ActiveModel::Errors:0x007fe0ca9e4b68 @base=#&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil&gt;,</span>
-</span><span class='line'><span class="vi">@messages</span><span class="o">=</span><span class="p">{</span><span class="ss">:title</span><span class="o">=&gt;[</span><span class="s2">&quot;can&#39;t be blank&quot;</span><span class="o">]</span><span class="p">}</span><span class="o">&gt;</span>
-</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When you call <code>@post.save</code> OR <code>@post.valid?</code> errors are added to the @post object so they can be displayed within the form.</p>
-
-<p>Digging even deeper&hellip; Check out <a href="http://api.rubyonrails.org/classes/ActiveModel/Model.html">ActiveModel::Model</a>. It will give you this same object interface without needing database backed model.  Powerful stuff.</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/10/angularjs/">Angularjs</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-02-10T20:57:17-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:57 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p><img class="img-responsive pull-left" src="/images/content/angularjs.png"></p>
-
-<p>Lately I&rsquo;ve been writing a lot of angularjs.  At my work, we had a great debeate.. which client side framework should we use.  It came down to angularjs or ember. Ultimately, we choose angular.  I&rsquo;m happy we did.  Angularjs is awesome.  I would have been just as happy to settle with ember. Two way binding is a game changer.</p>
-
-<p>Rails is great, BUT, I feel that, in any rails app, you end up creating interfaces that are a reflection of your database. Adding a client side framework, you&rsquo;re free to create interfaces that are decoupled from your backend.</p>
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/07/message-of-the-day/">Message of the Day</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-02-07T10:23:44-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:23 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>Lately I&rsquo;ve been doing a lot of server administration. It can be a lot of fun automating systems. One thing I&rsquo;ve found super valuable is to setup a &ldquo;message of the day&rdquo; file. This will display immediately after login and can be found in <code>/etc/motd</code>.  I like to put notes/documentation here. For example, I&rsquo;ll put in how to restart redis, how to tag a deploy, or the path to the app.</p>
-
-<p><img class="img-responsive" src="/images/content/motd.png"></p>
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/">Hosting a Static Site on an S3 Bucket</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2015-02-07T06:33:56-06:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:33 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>I love the recent shift from dynamic sites to static sites. This doesn&rsquo;t work for all sites. But why have a blog that gets dynamically build on each request.  It&rsquo;s Not needed.</p>
-
-<p>Amazon will host static sites on an S3 bucket and its dead simple. Awesome!</p>
-
-<ol>
-<li>Create a bucket and set as public host.</li>
-<li>Upload files and make them public.</li>
-<li>Profit.</li>
-</ol>
+  </section>
 
 </div>
+
+<aside class="sidebar">
   
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/21/migrate-a-single-database-migration/">Migrate a Single Database Migration</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2013-01-21T08:43:00-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>8:43 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">console</span>
-</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;db/migrate/20121130134444_add_column_backorder_to_orders.rb&quot;</span>
-</span><span class='line'><span class="no">AddColumnBackorderToOrders</span><span class="o">.</span><span class="n">up</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/15/convert-a-date-string-to-ruby-date/">Convert a Date String to Ruby Date</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2013-01-15T08:54:26-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>8:54 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Date</span><span class="o">.</span><span class="n">parse</span> <span class="s1">&#39;2013/1/15&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">DateTime</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;2013/1/15&#39;</span><span class="o">+</span><span class="s1">&#39;-23:59:59-6:00&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-        </article>
-      
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/14/form-helper-from-console/">Form Helper From Console</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2013-01-14T09:00:54-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>From the rails console.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">helper</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:object</span><span class="p">,</span> <span class="ss">:name</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">&quot;&lt;input id=</span><span class="se">\&quot;</span><span class="s2">object_name</span><span class="se">\&quot;</span><span class="s2"> name=</span><span class="se">\&quot;</span><span class="s2">object[name]</span><span class="se">\&quot;</span><span class="s2"> size=</span><span class="se">\&quot;</span><span class="s2">30</span><span class="se">\&quot;</span><span class="s2"> type=</span><span class="se">\&quot;</span><span class="s2">text</span><span class="se">\&quot;</span><span class="s2"> /&gt;&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-        </article>
-      
-      <div class="pagination">
-        
-          <a class="prev" href="/posts/2">&larr; Older</a>
-        
-        <a href="/blog/archives">Blog Archives</a>
-        
-      </div>
-    </div>
-
-
-  </div>
-
-
-  <div class="col-md-2">
-
-      <aside class="sidebar">
-        
-          <section>
+    <section>
   <h1>Recent</h1>
   <ul id="recent_posts">
     
@@ -939,13 +453,8 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 
 
 
-        
-      </aside>
-
-
-  </div>
-</div>
-
+  
+</aside>
 
 
     </div>
@@ -962,7 +471,10 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
       var disqus_shortname = 'tatumim';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tatums.github.io/blog/2015/02/28/crypto/';
+        var disqus_url = 'http://tatums.github.io/blog/2015/02/28/crypto/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

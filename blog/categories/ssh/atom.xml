@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ssh | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/ssh/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-13T15:01:09-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ssh Config]]></title>
+    <link href="http://tatums.github.io/blog/2015/02/21/ssh-config/"/>
+    <updated>2015-02-21T07:15:39-06:00</updated>
+    <id>http://tatums.github.io/blog/2015/02/21/ssh-config</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m in and out of servers all day.  One thing I&rsquo;ve found helpful is a ssh config file.  Create a file and place it <code>~/.ssh/config</code>.  You can add as many entries as you like.</p>
+
+<pre><code>Host s3-rsync
+  HostName ec2-54-203-43-190.us-west-2.compute.amazonaws.com
+  User ec2-user
+  IdentityFile "~/.ssh/private-key-location"
+</code></pre>
+
+<p><strong>Host:</strong> A friendly name/handle which you&rsquo;ll use.</p>
+
+<p><strong>HostName:</strong> The remote server address you&rsquo;ll be connecting to.</p>
+
+<p><strong>User:</strong> The user you want to connect as.</p>
+
+<p><strong>IdentityFile:</strong> The private key to authenticate with.</p>
+
+<p>Once its all setup you can connect by typing: <code>ssh s3-rsync</code></p>
+
+<p>This is the same as: <code>ssh -i ~/.ssh/bs2-deploy ec2-user@ec2-54-203-43-190.us-west-2.compute.amazonaws.com</code>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Add Public Ssh Key to Server]]></title>
+    <link href="http://tatums.github.io/blog/2012/12/16/add-public-ssh-key-to-server/"/>
+    <updated>2012-12-16T09:11:56-06:00</updated>
+    <id>http://tatums.github.io/blog/2012/12/16/add-public-ssh-key-to-server</id>
+    <content type="html"><![CDATA[<pre><code class="ruby">cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat &gt;&gt; .ssh/authorized_keys'
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

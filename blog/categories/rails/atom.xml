@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-13T15:01:09-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails Configuration]]></title>
+    <link href="http://tatums.github.io/blog/2015/03/14/rails-configuration/"/>
+    <updated>2015-03-14T10:25:26-05:00</updated>
+    <id>http://tatums.github.io/blog/2015/03/14/rails-configuration</id>
+    <content type="html"><![CDATA[<p>Occasionally I&rsquo;ll see things like this in a code base.
+<code>ruby
+def api_host
+  if Rails.production?
+    "http://prod.fake.api.url"
+  else
+    "http://stag.fake.api.url"
+  end
+end
+</code></p>
+
+<p>I try to avoid writting methods like this.  Rails provides a nice way to set environment specific variables.</p>
+
+<p><a href="http://guides.rubyonrails.org/configuring.html#custom-configuration">http://guides.rubyonrails.org/configuring.html#custom-configuration</a></p>
+
+<p><code>config/environments/staging.rb</code>
+<code>ruby
+config.api_host = "http://stag.fake.api.url"
+</code></p>
+
+<p><code>config/environments/production.rb</code>
+<code>ruby
+config.api_host = "http://prod.fake.api.url"
+</code></p>
+
+<p>So now you can refactor the method to this.</p>
+
+<pre><code class="ruby">def api_host
+  Rails.configuration.api_host
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Standard Rails Create Action]]></title>
+    <link href="http://tatums.github.io/blog/2015/02/11/rails-create-and-update/"/>
+    <updated>2015-02-11T15:43:24-06:00</updated>
+    <id>http://tatums.github.io/blog/2015/02/11/rails-create-and-update</id>
+    <content type="html"><![CDATA[<p>Rails has taught me some really good best practices. Let&rsquo;s look at a default rails create action</p>
+
+<pre><code class="ruby">def create
+  @post = Post.new(post_params)
+  respond_to do |format|
+    if @post.save
+      format.html { redirect_to @post, notice: 'Post was successfully created.' }
+    else
+      format.html { render :new }
+    end
+  end
+end
+</code></pre>
+
+<p>I try not to deviate too much from this and nor should you. If <code>@post.save</code> returns true. return a 201 status code.  If <code>@post.save</code> returns false re-render the :new action.  So you can let the user fix the form.</p>
+
+<p>Often I will see things like this.</p>
+
+<pre><code class="ruby">def create
+  if params[:something]
+    @post = Post.create(post_params)
+  else
+    @post = Post.create(other_params)
+  end
+  redirect_to posts_path
+end
+</code></pre>
+
+<p>At first glance this looks clean. But if you look closer. There is a subtle problem here. If the post object fails validation and fails to create, The action redirects to the index action where all new instaces are creating.  The @post object has lost any knowlege of the params and it will not get to oportunity to display the errors from the object.  You&rsquo;ll have to resort to things like <code>flash[:notice] = "@post.errors.full_messages.join()"</code>&hellip; ugh.</p>
+
+<p>Active record gives us a nice interface for displaying errors on an object.</p>
+
+<pre><code class="ruby">class Post &lt; ActiveRecord::Base
+  validates :title, presence: true
+end
+</code></pre>
+
+<pre><code class="ruby">irb(main):001:0&gt; p = Post.new
+=&gt; #&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil&gt;
+irb(main):002:0&gt; p.valid?
+=&gt; false
+irb(main):003:0&gt; p.errors
+=&gt; #&lt;ActiveModel::Errors:0x007fe0ca9e4b68 @base=#&lt;Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil&gt;,
+@messages={:title=&gt;["can't be blank"]}&gt;
+irb(main):004:0&gt;
+</code></pre>
+
+<p>When you call <code>@post.save</code> OR <code>@post.valid?</code> errors are added to the @post object so they can be displayed within the form.</p>
+
+<p>Digging even deeper&hellip; Check out <a href="http://api.rubyonrails.org/classes/ActiveModel/Model.html">ActiveModel::Model</a>. It will give you this same object interface without needing database backed model.  Powerful stuff.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Migrate a Single Database Migration]]></title>
+    <link href="http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration/"/>
+    <updated>2013-01-21T08:43:00-06:00</updated>
+    <id>http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration</id>
+    <content type="html"><![CDATA[<pre><code class="ruby">rails console
+require "db/migrate/20121130134444_add_column_backorder_to_orders.rb"
+AddColumnBackorderToOrders.up
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Form Helper From Console]]></title>
+    <link href="http://tatums.github.io/blog/2013/01/14/form-helper-from-console/"/>
+    <updated>2013-01-14T09:00:54-06:00</updated>
+    <id>http://tatums.github.io/blog/2013/01/14/form-helper-from-console</id>
+    <content type="html"><![CDATA[<p>From the rails console.</p>
+
+<pre><code class="ruby">helper.text_field :object, :name
+
+"&lt;input id=\"object_name\" name=\"object[name]\" size=\"30\" type=\"text\" /&gt;"
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Set Default Value in Rails Model]]></title>
+    <link href="http://tatums.github.io/blog/2013/01/14/set-default-value-in-rails-model/"/>
+    <updated>2013-01-14T08:00:37-06:00</updated>
+    <id>http://tatums.github.io/blog/2013/01/14/set-default-value-in-rails-model</id>
+    <content type="html"><![CDATA[<p>I like to set default values in my models. This is the method I like to use.</p>
+
+<pre><code class="ruby">def after_initialize
+  if new_record?
+    self.upper_quantity ||= 0.0
+  end
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

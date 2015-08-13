@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Models | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/models/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-13T15:01:09-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Set Default Value in Rails Model]]></title>
+    <link href="http://tatums.github.io/blog/2013/01/14/set-default-value-in-rails-model/"/>
+    <updated>2013-01-14T08:00:37-06:00</updated>
+    <id>http://tatums.github.io/blog/2013/01/14/set-default-value-in-rails-model</id>
+    <content type="html"><![CDATA[<p>I like to set default values in my models. This is the method I like to use.</p>
+
+<pre><code class="ruby">def after_initialize
+  if new_record?
+    self.upper_quantity ||= 0.0
+  end
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

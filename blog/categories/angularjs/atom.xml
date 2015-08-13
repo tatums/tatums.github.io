@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Angularjs | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/angularjs/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-13T15:01:09-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Angularjs]]></title>
+    <link href="http://tatums.github.io/blog/2015/02/10/angularjs/"/>
+    <updated>2015-02-10T20:57:17-06:00</updated>
+    <id>http://tatums.github.io/blog/2015/02/10/angularjs</id>
+    <content type="html"><![CDATA[<p><img class="img-responsive pull-left" src="/images/content/angularjs.png"></p>
+
+<p>Lately I&rsquo;ve been writing a lot of angularjs.  At my work, we had a great debeate.. which client side framework should we use.  It came down to angularjs or ember. Ultimately, we choose angular.  I&rsquo;m happy we did.  Angularjs is awesome.  I would have been just as happy to settle with ember. Two way binding is a game changer.</p>
+
+<p>Rails is great, BUT, I feel that, in any rails app, you end up creating interfaces that are a reflection of your database. Adding a client side framework, you&rsquo;re free to create interfaces that are decoupled from your backend.</p>
+]]></content>
+  </entry>
+  
+</feed>
