@@ -4,7 +4,7 @@
   <title><![CDATA[Helping me remember...]]></title>
   <link href="http://tatums.github.io/atom.xml" rel="self"/>
   <link href="http://tatums.github.io/"/>
-  <updated>2015-08-13T19:56:35-05:00</updated>
+  <updated>2015-08-13T20:16:32-05:00</updated>
   <id>http://tatums.github.io/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
@@ -154,6 +154,10 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>Awesome right!!</p>
+
+<p>So why do all this?  Well, the single responsibilty states that every class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.  ActiveRecord is responsible for persistence to the database. This will keep our classes with a narrow focus and allow us to refactor and create more use cases in the future. I think its a win.  I find this strategy is generally good for one directional workflows such as signup or in a shopping app cart checkout.</p>
 ]]></content>
   </entry>
   
