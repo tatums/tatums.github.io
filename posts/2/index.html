@@ -9,12 +9,10 @@
   <meta name="author" content="Tatum Szymczak">
 
   
-  <meta name="description" content="I like to set default values in my models. This is the method I like to use. 1
+  <meta name="description" content="From the rails console. 1
 2
 3
-4
-5
-def after_initialize if new_record? self.upper_quantity ||= 0. &hellip;">
+helper.text_field :object, :name &quot;&lt;input id=\&quot;object_name\&quot; name=\&quot;object[name]\&quot; size=\& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -98,6 +96,50 @@ def after_initialize if new_record? self.upper_quantity ||= 0. &hellip;">
 
     <div class="blog-index">
       
+      
+      
+        <article>
+          
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/14/form-helper-from-console/">Form Helper From Console</a></h1>
+    
+    
+      <p class="meta">
+
+
+        <i class="fa fa-calendar-o"></i>
+
+
+
+
+
+<time class='entry-date' datetime='2013-01-14T09:00:54-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:00 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<hr>
+
+
+  <div class="entry-content"><p>From the rails console.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">helper</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:object</span><span class="p">,</span> <span class="ss">:name</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&quot;&lt;input id=</span><span class="se">\&quot;</span><span class="s2">object_name</span><span class="se">\&quot;</span><span class="s2"> name=</span><span class="se">\&quot;</span><span class="s2">object[name]</span><span class="se">\&quot;</span><span class="s2"> size=</span><span class="se">\&quot;</span><span class="s2">30</span><span class="se">\&quot;</span><span class="s2"> type=</span><span class="se">\&quot;</span><span class="s2">text</span><span class="se">\&quot;</span><span class="s2"> /&gt;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+        </article>
       
       
         <article>
@@ -406,6 +448,10 @@ def after_initialize if new_record? self.upper_quantity ||= 0. &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/13/activemodel-model/">ActiveModel::Model</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/14/rails-configuration/">Rails Configuration</a>
       </li>
     
@@ -419,10 +465,6 @@ def after_initialize if new_record? self.upper_quantity ||= 0. &hellip;">
     
       <li class="post">
         <a href="/blog/2015/02/11/rails-create-and-update/">Standard Rails Create Action</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/10/angularjs/">Angularjs</a>
       </li>
     
   </ul>

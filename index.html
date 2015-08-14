@@ -9,14 +9,16 @@
   <meta name="author" content="Tatum Szymczak">
 
   
-  <meta name="description" content="Occasionally I&rsquo;ll see things like this in a code base. 1
+  <meta name="description" content="Rails 4 brought us ActiveModel::Model. It provides a similar interface as database backed ActiveRecord::Base model. for example 1
 2
 3
 4
 5
 6
 7
-def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;">
+8
+9
+10 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -100,6 +102,176 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 
     <div class="blog-index">
       
+      
+      
+        <article>
+          
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/08/13/activemodel-model/">ActiveModel::Model</a></h1>
+    
+    
+      <p class="meta">
+
+
+        <i class="fa fa-calendar-o"></i>
+
+
+
+
+
+<time class='entry-date' datetime='2015-08-13T19:37:30-05:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:37 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<hr>
+
+
+  <div class="entry-content"><p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a similar interface as database backed <code>ActiveRecord::Base</code> model.</p>
+
+<p>for example</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Model</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="kp">true</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">save</span>
+</span><span class='line'>    <span class="c1">## Do cool stuff here...</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Loading</span> <span class="n">development</span> <span class="n">environment</span> <span class="p">(</span><span class="no">Rails</span> <span class="mi">4</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span> <span class="ss">age</span><span class="p">:</span> <span class="mi">21</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Person:0x007fc6367193b0 @age=21&gt;</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span><span class="o">.</span><span class="n">valid?</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">false</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">p</span><span class="o">.</span><span class="n">errors</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;ActiveModel::Errors:0x007fc638000a68 @base=#&lt;Person:0x007fc6367193b0 @age=21, @validation_context=nil, @errors=#&lt;ActiveModel::Errors:0x007fc638000a68 ...&gt;&gt;, @messages={:name=&gt;[&quot;can&#39;t be blank&quot;]}&gt;</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is great for controllers, especially where you dont necessarily want a database backed Active Record model.</p>
+
+<h2>More&hellip;</h2>
+
+<p>Lets say I have 2 ActiveRecord classes</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Org</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:first</span><span class="p">,</span> <span class="ss">:last</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now I&rsquo;ll create an ActiveModel (non database)</p>
+
+<p>Notice the validates_each method&hellip; Its going to check each of the ActiveRecord objects and let them raise up any errors to the Signup class.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Signup</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Model</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:first</span><span class="p">,</span> <span class="ss">:last</span><span class="p">,</span> <span class="ss">:name</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates_each</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">:org</span> <span class="k">do</span> <span class="o">|</span><span class="n">record</span><span class="p">,</span> <span class="kp">attr</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+</span><span class='line'>    <span class="k">unless</span> <span class="n">value</span><span class="o">.</span><span class="n">valid?</span>
+</span><span class='line'>      <span class="n">value</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span> <span class="n">record</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">to_sym</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">## must return boolean</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">save</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">valid?</span>
+</span><span class='line'>      <span class="n">org</span><span class="o">.</span><span class="n">save</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="kp">false</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">org</span>
+</span><span class='line'>      <span class="vi">@org</span> <span class="o">||</span> <span class="no">Org</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">user</span>
+</span><span class='line'>      <span class="vi">@user</span> <span class="o">||</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="ss">last</span><span class="p">:</span> <span class="n">last</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+        </article>
       
       
         <article>
@@ -812,50 +984,6 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
 
         </article>
       
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/14/form-helper-from-console/">Form Helper From Console</a></h1>
-    
-    
-      <p class="meta">
-
-
-        <i class="fa fa-calendar-o"></i>
-
-
-
-
-
-<time class='entry-date' datetime='2013-01-14T09:00:54-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><p>From the rails console.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">helper</span><span class="o">.</span><span class="n">text_field</span> <span class="ss">:object</span><span class="p">,</span> <span class="ss">:name</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">&quot;&lt;input id=</span><span class="se">\&quot;</span><span class="s2">object_name</span><span class="se">\&quot;</span><span class="s2"> name=</span><span class="se">\&quot;</span><span class="s2">object[name]</span><span class="se">\&quot;</span><span class="s2"> size=</span><span class="se">\&quot;</span><span class="s2">30</span><span class="se">\&quot;</span><span class="s2"> type=</span><span class="se">\&quot;</span><span class="s2">text</span><span class="se">\&quot;</span><span class="s2"> /&gt;&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-        </article>
-      
       <div class="pagination">
         
           <a class="prev" href="/posts/2">&larr; Older</a>
@@ -878,6 +1006,10 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/13/activemodel-model/">ActiveModel::Model</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/14/rails-configuration/">Rails Configuration</a>
       </li>
     
@@ -891,10 +1023,6 @@ def api_host if Rails.production? &quot;http://prod.fake.api.url&quot; &hellip;"
     
       <li class="post">
         <a href="/blog/2015/02/11/rails-create-and-update/">Standard Rails Create Action</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/10/angularjs/">Angularjs</a>
       </li>
     
   </ul>
