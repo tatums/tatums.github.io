@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Helping me remember...]]></title>
   <link href="http://tatums.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://tatums.github.io/"/>
-  <updated>2015-08-15T10:32:32-05:00</updated>
+  <updated>2015-08-15T10:39:58-05:00</updated>
   <id>http://tatums.github.io/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
@@ -49,8 +49,7 @@ irb(main):004:0&gt;
 
 <p>This is great for instances where you don&rsquo;t need a full database backed Active Record model. I&rsquo;ve used them for form objects and in controllers where I have complex logic.</p>
 
-<p>You can think of these as little higher level abstractions above your
-ActiveRecord classes.</p>
+<p>You can think of these as higher level abstractions above your ActiveRecord classes. Also, be conscious of the dependancy direction. An ActiveModel model can depend on an ActiveRecord model but your ActiveRecord models shouldn&rsquo;t depend on an ActiveModel model.</p>
 
 <p><br />
 Here&rsquo;s a more involved example.
@@ -103,7 +102,7 @@ end
 
 <p>Awesome right!!</p>
 
-<p>So why do all this?  Well, the single responsibilty states that every class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.  ActiveRecord is responsible for persistence to the database. This will keep our classes with a narrow focus and allow us to refactor and create more use cases in the future. I think its a win.  I find this strategy is generally good for one directional workflows such as signup or in a shopping app cart checkout.</p>
+<p>So why do all this?  Well, the single responsibilty states that every class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class.  ActiveRecord is responsible for persistence to the database. This will keep our classes with a narrow focus and allow us to refactor and create more use cases in the future. I think it&rsquo;s a win.  I find this strategy is generally good for one directional workflows such as signup or in a shopping app cart checkout.</p>
 ]]></content>
   </entry>
   
