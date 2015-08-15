@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Helping me remember...]]></title>
   <link href="http://tatums.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://tatums.github.io/"/>
-  <updated>2015-08-13T20:16:32-05:00</updated>
+  <updated>2015-08-15T10:25:46-05:00</updated>
   <id>http://tatums.github.io/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
@@ -18,9 +18,9 @@
     <link href="http://tatums.github.io/blog/2015/08/13/activemodel-model/"/>
     <updated>2015-08-13T19:37:30-05:00</updated>
     <id>http://tatums.github.io/blog/2015/08/13/activemodel-model</id>
-    <content type="html"><![CDATA[<p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a similar interface as database backed <code>ActiveRecord::Base</code> model.</p>
+    <content type="html"><![CDATA[<p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a light weight interface that similar to an <code>ActiveRecord::Base</code> model.</p>
 
-<p>for example</p>
+<p>for example I can create a Person class like so.</p>
 
 <pre><code class="ruby">class Person
   include ActiveModel::Model
