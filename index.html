@@ -9,7 +9,7 @@
   <meta name="author" content="Tatum Szymczak">
 
   
-  <meta name="description" content="Rails 4 brought us ActiveModel::Model. It provides a light weight interface that similar to an ActiveRecord::Base model. for example I can create a &hellip;">
+  <meta name="description" content="Rails 4 brought us ActiveModel::Model. It provides a light weight interface that&rsquo;s similar to an ActiveRecord::Base model. for example, I can &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -121,9 +121,9 @@
 <hr>
 
 
-  <div class="entry-content"><p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a light weight interface that similar to an <code>ActiveRecord::Base</code> model.</p>
+  <div class="entry-content"><p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a light weight interface that&rsquo;s similar to an <code>ActiveRecord::Base</code> model.</p>
 
-<p>for example I can create a Person class like so.</p>
+<p>for example, I can create a Person class like so.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -169,11 +169,15 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This is great for controllers, especially where you dont necessarily want a database backed Active Record model.</p>
+<p>This is great for controllers. Especially where you don&rsquo;t need a full database backed Active Record model.</p>
 
-<h2>More&hellip;</h2>
+<hr> </hr>
 
-<p>Lets say I have 2 ActiveRecord classes</p>
+
+<p>You can think of these as little higher level abstractions above your
+ActiveRecord classes.</p>
+
+<p>For example, lets say I have 2 ActiveRecord classes Org and User</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -182,6 +186,8 @@
 </span><span class='line'>  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -193,7 +199,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now I&rsquo;ll create an ActiveModel (non database)</p>
+<p>Now I&rsquo;ll create an ActiveModel model (non database)</p>
 
 <p>Notice the validates_each method&hellip; Its going to check each of the ActiveRecord objects and let them raise up any errors to the Signup class.</p>
 
