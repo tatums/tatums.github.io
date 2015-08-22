@@ -4,7 +4,7 @@
   <title><![CDATA[Helping me remember...]]></title>
   <link href="http://tatums.github.io/atom.xml" rel="self"/>
   <link href="http://tatums.github.io/"/>
-  <updated>2015-08-15T10:39:58-05:00</updated>
+  <updated>2015-08-22T07:54:57-05:00</updated>
   <id>http://tatums.github.io/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Don't Be Clever Stupid]]></title>
+    <link href="http://tatums.github.io/blog/2015/08/15/dont-be-clever-stupid/"/>
+    <updated>2015-08-15T10:42:18-05:00</updated>
+    <id>http://tatums.github.io/blog/2015/08/15/dont-be-clever-stupid</id>
+    <content type="html"><![CDATA[<p>Everyone loves clever, right!?. Well, DONT! A clever solution is technical debt.</p>
+
+<blockquote>
+Any fool can write code that a computer can understand. 
+Good programmers write code that humans can understand. – Martin Fowler
+</blockquote>
+
+
+<p>So why do we do this? I belevie we enjoy knowing something that confuses others. It makes us feel smart. But please avoid this. Avoid this for your app, for your teamates, and for your future self.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ActiveModel::Model]]></title>
@@ -154,11 +171,11 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
 </span><span class='line'>  <span class="kp">private</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="k">def</span> <span class="nf">org</span>
-</span><span class='line'>      <span class="vi">@org</span> <span class="o">||</span> <span class="no">Org</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@org</span> <span class="o">||=</span> <span class="no">Org</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="k">def</span> <span class="nf">user</span>
-</span><span class='line'>      <span class="vi">@user</span> <span class="o">||</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="ss">last</span><span class="p">:</span> <span class="n">last</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="ss">last</span><span class="p">:</span> <span class="n">last</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>

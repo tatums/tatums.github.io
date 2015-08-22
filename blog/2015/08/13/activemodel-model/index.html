@@ -251,11 +251,11 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
 </span><span class='line'>  <span class="kp">private</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="k">def</span> <span class="nf">org</span>
-</span><span class='line'>      <span class="vi">@org</span> <span class="o">||</span> <span class="no">Org</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@org</span> <span class="o">||=</span> <span class="no">Org</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="nb">name</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="k">def</span> <span class="nf">user</span>
-</span><span class='line'>      <span class="vi">@user</span> <span class="o">||</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="ss">last</span><span class="p">:</span> <span class="n">last</span><span class="p">)</span>
+</span><span class='line'>      <span class="vi">@user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="n">first</span><span class="p">,</span> <span class="ss">last</span><span class="p">:</span> <span class="n">last</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -306,6 +306,8 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
         <a class="basic-alignment left" href="/blog/2015/03/14/rails-configuration/" title="Previous Post: rails configuration">&laquo; rails configuration</a>
       
       
+        <a class="basic-alignment right" href="/blog/2015/08/15/dont-be-clever-stupid/" title="Next Post: Don't be clever stupid">Don&#8217;t be clever stupid &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -325,6 +327,10 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/08/15/dont-be-clever-stupid/">Don&#8217;t Be Clever Stupid</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/13/activemodel-model/">ActiveModel::Model</a>
       </li>
     
@@ -338,10 +344,6 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
     
       <li class="post">
         <a href="/blog/2015/02/21/ssh-config/">Ssh Config</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/11/rails-create-and-update/">Standard Rails Create Action</a>
       </li>
     
   </ul>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://tatums.github.io/blog/2015/08/15/dont-be-clever-stupid/</loc>
+    <lastmod>2015-08-15T10:42:18-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://tatums.github.io/blog/2015/08/13/activemodel-model/</loc>
     <lastmod>2015-08-13T19:37:30-05:00</lastmod>
   </url>
@@ -71,13 +75,16 @@
     <loc>http://tatums.github.io/archives/</loc>
   </url>
   <url>
-    <loc>http://tatums.github.io/</loc>
-  </url>
-  <url>
     <loc>http://tatums.github.io/blog/archives/</loc>
   </url>
   <url>
+    <loc>http://tatums.github.io/</loc>
+  </url>
+  <url>
     <loc>http://tatums.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>http://tatums.github.io/tatum-szymczak/</loc>
   </url>
   <url>
     <loc>http://tatums.github.io/blog/categories/linux/</loc>
@@ -120,5 +127,8 @@
   </url>
   <url>
     <loc>http://tatums.github.io/blog/categories/encryption/</loc>
+  </url>
+  <url>
+    <loc>http://tatums.github.io/blog/categories/programming/</loc>
   </url>
 </urlset>
