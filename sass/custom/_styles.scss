@@ -55,3 +55,9 @@ article {
 body {
 }
 .ads{margin-top: 2em;}
+article header {overflow:auto;}
+article header h1 { float:left;}
+article header p.meta {
+  float:right;
+  font-size: 0.9em;
+}
