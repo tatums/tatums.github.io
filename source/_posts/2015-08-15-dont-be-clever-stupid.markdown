@@ -13,6 +13,6 @@ Any fool can write code that a computer can understand.
 Good programmers write code that humans can understand. – Martin Fowler
 </blockquote>
 
-So why do we do this? I belevie we enjoy knowing something that confuses others. It makes us feel smart. But please avoid this. Avoid this for your app, for your teamates, and for your future self.
+So why do we do this? I belevie we enjoy knowing something that confuses others. It makes us feel smart. But please avoid this. Avoid this for your app, for your teammates, and for your future self.
 
 
