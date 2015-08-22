@@ -75,13 +75,16 @@
     <loc>http://tatums.github.io/archives/</loc>
   </url>
   <url>
-    <loc>http://tatums.github.io/</loc>
-  </url>
-  <url>
     <loc>http://tatums.github.io/blog/archives/</loc>
   </url>
   <url>
+    <loc>http://tatums.github.io/</loc>
+  </url>
+  <url>
     <loc>http://tatums.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>http://tatums.github.io/tatum-szymczak/</loc>
   </url>
   <url>
     <loc>http://tatums.github.io/blog/categories/linux/</loc>
@@ -127,8 +130,5 @@
   </url>
   <url>
     <loc>http://tatums.github.io/blog/categories/programming/</loc>
-  </url>
-  <url>
-    <loc>http://tatums.github.io/posts/2/</loc>
   </url>
 </urlset>
