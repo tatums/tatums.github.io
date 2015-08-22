@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Forms | Helping me remember...]]></title>
-  <link href="http://tatums.github.io/blog/categories/forms/atom.xml" rel="self"/>
-  <link href="http://tatums.github.io/"/>
-  <updated>2015-08-22T08:06:25-05:00</updated>
-  <id>http://tatums.github.io/</id>
+  <link href="http://www.tatum.im/blog/categories/forms/atom.xml" rel="self"/>
+  <link href="http://www.tatum.im/"/>
+  <updated>2015-08-22T09:30:50-05:00</updated>
+  <id>http://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Form Helper From Console]]></title>
-    <link href="http://tatums.github.io/blog/2013/01/14/form-helper-from-console/"/>
+    <link href="http://www.tatum.im/blog/2013/01/14/form-helper-from-console/"/>
     <updated>2013-01-14T09:00:54-06:00</updated>
-    <id>http://tatums.github.io/blog/2013/01/14/form-helper-from-console</id>
+    <id>http://www.tatum.im/blog/2013/01/14/form-helper-from-console</id>
     <content type="html"><![CDATA[<p>From the rails console.</p>
 
 <pre><code class="ruby">helper.text_field :object, :name

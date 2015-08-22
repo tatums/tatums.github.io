@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Aws | Helping me remember...]]></title>
-  <link href="http://tatums.github.io/blog/categories/aws/atom.xml" rel="self"/>
-  <link href="http://tatums.github.io/"/>
-  <updated>2015-08-22T08:06:25-05:00</updated>
-  <id>http://tatums.github.io/</id>
+  <link href="http://www.tatum.im/blog/categories/aws/atom.xml" rel="self"/>
+  <link href="http://www.tatum.im/"/>
+  <updated>2015-08-22T09:30:50-05:00</updated>
+  <id>http://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hosting a Static Site on an S3 Bucket]]></title>
-    <link href="http://tatums.github.io/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/"/>
+    <link href="http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/"/>
     <updated>2015-02-07T06:33:56-06:00</updated>
-    <id>http://tatums.github.io/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket</id>
+    <id>http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket</id>
     <content type="html"><![CDATA[<p>I love the recent shift from dynamic sites to static sites. This doesn&rsquo;t work for all sites. But why have a blog that gets dynamically build on each request.  It&rsquo;s Not needed.</p>
 
 <p>Amazon will host static sites on an S3 bucket and its dead simple. Awesome!</p>

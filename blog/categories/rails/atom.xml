@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Rails | Helping me remember...]]></title>
-  <link href="http://tatums.github.io/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://tatums.github.io/"/>
-  <updated>2015-08-22T08:06:25-05:00</updated>
-  <id>http://tatums.github.io/</id>
+  <link href="http://www.tatum.im/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://www.tatum.im/"/>
+  <updated>2015-08-22T09:30:50-05:00</updated>
+  <id>http://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ActiveModel::Model]]></title>
-    <link href="http://tatums.github.io/blog/2015/08/13/activemodel-model/"/>
+    <link href="http://www.tatum.im/blog/2015/08/13/activemodel-model/"/>
     <updated>2015-08-13T19:37:30-05:00</updated>
-    <id>http://tatums.github.io/blog/2015/08/13/activemodel-model</id>
+    <id>http://www.tatum.im/blog/2015/08/13/activemodel-model</id>
     <content type="html"><![CDATA[<p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a light weight interface that&rsquo;s similar to an <code>ActiveRecord::Base</code> model.</p>
 
 <p>for example, I can create a Person class like so.</p>
@@ -108,9 +108,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Rails Configuration]]></title>
-    <link href="http://tatums.github.io/blog/2015/03/14/rails-configuration/"/>
+    <link href="http://www.tatum.im/blog/2015/03/14/rails-configuration/"/>
     <updated>2015-03-14T10:25:26-05:00</updated>
-    <id>http://tatums.github.io/blog/2015/03/14/rails-configuration</id>
+    <id>http://www.tatum.im/blog/2015/03/14/rails-configuration</id>
     <content type="html"><![CDATA[<p>Occasionally I&rsquo;ll see things like this in a code base.
 <code>ruby
 def api_host
@@ -147,9 +147,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[Standard Rails Create Action]]></title>
-    <link href="http://tatums.github.io/blog/2015/02/11/rails-create-and-update/"/>
+    <link href="http://www.tatum.im/blog/2015/02/11/rails-create-and-update/"/>
     <updated>2015-02-11T15:43:24-06:00</updated>
-    <id>http://tatums.github.io/blog/2015/02/11/rails-create-and-update</id>
+    <id>http://www.tatum.im/blog/2015/02/11/rails-create-and-update</id>
     <content type="html"><![CDATA[<p>Rails has taught me some really good best practices. Let&rsquo;s look at a default rails create action</p>
 
 <pre><code class="ruby">def create
@@ -205,9 +205,9 @@ irb(main):004:0&gt;
   
   <entry>
     <title type="html"><![CDATA[Migrate a Single Database Migration]]></title>
-    <link href="http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration/"/>
+    <link href="http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration/"/>
     <updated>2013-01-21T08:43:00-06:00</updated>
-    <id>http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration</id>
+    <id>http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration</id>
     <content type="html"><![CDATA[<pre><code class="ruby">rails console
 require "db/migrate/20121130134444_add_column_backorder_to_orders.rb"
 AddColumnBackorderToOrders.up
@@ -217,9 +217,9 @@ AddColumnBackorderToOrders.up
   
   <entry>
     <title type="html"><![CDATA[Form Helper From Console]]></title>
-    <link href="http://tatums.github.io/blog/2013/01/14/form-helper-from-console/"/>
+    <link href="http://www.tatum.im/blog/2013/01/14/form-helper-from-console/"/>
     <updated>2013-01-14T09:00:54-06:00</updated>
-    <id>http://tatums.github.io/blog/2013/01/14/form-helper-from-console</id>
+    <id>http://www.tatum.im/blog/2013/01/14/form-helper-from-console</id>
     <content type="html"><![CDATA[<p>From the rails console.</p>
 
 <pre><code class="ruby">helper.text_field :object, :name
