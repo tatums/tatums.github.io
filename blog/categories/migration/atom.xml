@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Migration | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/migration/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-22T09:18:51-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Migrate a Single Database Migration]]></title>
+    <link href="http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration/"/>
+    <updated>2013-01-21T08:43:00-06:00</updated>
+    <id>http://tatums.github.io/blog/2013/01/21/migrate-a-single-database-migration</id>
+    <content type="html"><![CDATA[<pre><code class="ruby">rails console
+require "db/migrate/20121130134444_add_column_backorder_to_orders.rb"
+AddColumnBackorderToOrders.up
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mongo | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/mongo/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-22T09:18:51-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Failed to Connect to a Master Node at Localhost:27017]]></title>
+    <link href="http://tatums.github.io/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017/"/>
+    <updated>2012-12-31T09:05:06-06:00</updated>
+    <id>http://tatums.github.io/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017</id>
+    <content type="html"><![CDATA[<p>Everytime my server looses power, Mongo has trouble restarting. These commands fixes the problem.</p>
+
+<pre><code class="bash">sudo rm /var/lib/mongodb/mongod.lock
+</code></pre>
+
+<pre><code class="bash">sudo -u mongodb mongod -f /etc/mongodb.conf --repair
+sudo service mongodb restart
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

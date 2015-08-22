@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programming | Helping me remember...]]></title>
+  <link href="http://tatums.github.io/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://tatums.github.io/"/>
+  <updated>2015-08-22T09:18:51-05:00</updated>
+  <id>http://tatums.github.io/</id>
+  <author>
+    <name><![CDATA[Tatum Szymczak]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Don't Be Clever Stupid]]></title>
+    <link href="http://tatums.github.io/blog/2015/08/15/dont-be-clever-stupid/"/>
+    <updated>2015-08-15T10:42:18-05:00</updated>
+    <id>http://tatums.github.io/blog/2015/08/15/dont-be-clever-stupid</id>
+    <content type="html"><![CDATA[<p>Everyone loves clever, right!?. Well, DONT! A clever solution is technical debt.</p>
+
+<blockquote>
+Any fool can write code that a computer can understand. 
+Good programmers write code that humans can understand. – Martin Fowler
+</blockquote>
+
+
+<p>So why do we do this? I belevie we enjoy knowing something that confuses others. It makes us feel smart. But please avoid this. Avoid this for your app, for your teamates, and for your future self.</p>
+]]></content>
+  </entry>
+  
+</feed>
