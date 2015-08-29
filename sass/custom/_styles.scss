@@ -22,7 +22,7 @@ body p {
 
 
 #content{
-  margin-top: 4em;
+  margin-top: 6em;
 }
 #header h1{ margin-top:0px }
 
@@ -30,7 +30,6 @@ body{background: #f0f0f0 url(/images/bg-noise.gif) repeat -70% 0;}
 article {background-color: white;}
 
 body a:hover { text-decoration: none;}
-.entry-title{ margin-top:5px }
 
 #header h1 a {
   color: #fff;
@@ -38,7 +37,7 @@ body a:hover { text-decoration: none;}
   padding: 0.15em;
   font-size: 0.8em;
 }
-article {
+article, .sidebar-style {
   padding: 0 1em;
   background-color: #fff;
   margin-bottom: 1em;
@@ -58,5 +57,7 @@ article header p.meta {
   font-size: 0.9em;
 }
 .meta, .meta span{color:#898989}
+.meta { margin-top: 20px;}
 article hr {margin:0.5em}
-article .meta { margin-top:0.25em; }
+article{margin-bottom:3.5em}
+.entry-content{padding-bottom:2em}
