@@ -75,13 +75,16 @@
     <loc>http://www.tatum.im/archives/</loc>
   </url>
   <url>
-    <loc>http://www.tatum.im/</loc>
-  </url>
-  <url>
     <loc>http://www.tatum.im/blog/archives/</loc>
   </url>
   <url>
+    <loc>http://www.tatum.im/</loc>
+  </url>
+  <url>
     <loc>http://www.tatum.im/about/</loc>
+  </url>
+  <url>
+    <loc>http://www.tatum.im/tatum-szymczak/</loc>
   </url>
   <url>
     <loc>http://www.tatum.im/blog/categories/linux/</loc>
@@ -127,5 +130,8 @@
   </url>
   <url>
     <loc>http://www.tatum.im/blog/categories/programming/</loc>
+  </url>
+  <url>
+    <loc>http://www.tatum.im/posts/2/</loc>
   </url>
 </urlset>
