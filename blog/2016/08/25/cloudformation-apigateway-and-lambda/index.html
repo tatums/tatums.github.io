@@ -10,7 +10,7 @@
 
   
   <meta name="description" content="Recently, I&rsquo;ve been excited by serverless
-technology. I began using the serverless framework
+technology. I began using the Serverless framework
 for code boilerplate and deployment. After some &hellip;">
   
 
@@ -117,15 +117,15 @@ for code boilerplate and deployment. After some &hellip;">
 
 
 <div class="entry-content"><p>Recently, I&rsquo;ve been excited by <a href="http://martinfowler.com/articles/serverless.html">serverless</a>
-technology. I began using the <a href="http://serverless.com/">serverless framework</a>
-for code boilerplate and deployment. After some time, I began feeling pain.
+technology. I began using the <a href="http://serverless.com/">Serverless framework</a>
+for code boilerplate and deployment. After some time using the framework, I began feeling pain.
 Serverless is an excellent project, but it&rsquo;s moving <strong>very</strong> fast. For example, The
-framework uses cloudformation for resources your project will depend on.
-Cloudformation is also moving very fast. Support for <a href="https://aws.amazon.com/about-aws/whats-new/2016/04/aws-cloudformation-adds-support-for-amazon-api-gateway-and-updated-resource-support/">ApiGateway was added to cloudformation on April
-18th, 2016</a>.
- As new features are added to cloudformation, you&rsquo;ll be stuck waiting for
-serverless to implement features for feature parity. I&rsquo;ve started using
-cloudformation direclty and relying on bash scripts for deployment. I&rsquo;m quite
+framework uses cloudformation for resource dependencies such as dynamoDb, ApiGateway,
+roles and permissions (to name a few). Cloudformation is <strong>also</strong> moving very fast.
+Support for <a href="https://aws.amazon.com/about-aws/whats-new/2016/04/aws-cloudformation-adds-support-for-amazon-api-gateway-and-updated-resource-support/">ApiGateway was added to cloudformation on April 18th, 2016</a>.
+ New features added to cloudformation, will need to be re-implemented
+ in the serverless framework to maintain feature parity. As a result, I&rsquo;ve started using
+cloudformation direclty and relying on bash scripts for deployment and I&rsquo;m quite
 happy with the results.</p>
 
 <h3>Cloudformation stack</h3>
