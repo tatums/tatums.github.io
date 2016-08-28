@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Cloudformation ApiGateway and Lambda - Helping me remember&#8230;</title>
+  <meta name="author" content="Tatum Szymczak">
+
+  
+  <meta name="description" content="Recently, I&rsquo;ve been excited by serverless
+technology. I began using the serverless framework
+for code boilerplate and deployment. After some &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="" rel="alternate" title="Helping me remember..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-60208946-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+</head>
+
+<body   class="no-sidebar"  >
+
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+  <div class="navbar-header">
+    
+      
+      
+      
+      
+    </button>
+    <header id="header" role="banner"><hgroup>
+  <h1><a href="/">Helping me remember&#8230;</a></h1>
+  
+</hgroup>
+
+</header>
+  </div>
+  <div class="navbar-collapse collapse">
+
+    
+  <form class="navbar-form navbar-right" action="https://www.google.com/search" method="get">
+      <input type="hidden" name="q" value="site:www.tatum.im" />
+      <input class="search form-control" type="text" name="q" results="0" placeholder="Search"/>
+  </form>
+
+
+
+
+
+  </div><!--/.nav-collapse -->
+</div>
+</div>
+
+
+
+  <div id="main" class="container">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cloudformation ApiGateway and Lambda</h1>
+    
+    
+      <p class="meta">
+
+        <i class="fa fa-calendar-o"></i>
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-25T07:44:12-05:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:44 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<hr>
+
+
+<div class="entry-content"><p>Recently, I&rsquo;ve been excited by <a href="http://martinfowler.com/articles/serverless.html">serverless</a>
+technology. I began using the <a href="http://serverless.com/">serverless framework</a>
+for code boilerplate and deployment. After some time, I began feeling pain.
+Serverless is an excellent project, but it&rsquo;s moving <strong>very</strong> fast. For example, The
+framework uses cloudformation for resources your project will depend on.
+Cloudformation is also moving very fast. Support for <a href="https://aws.amazon.com/about-aws/whats-new/2016/04/aws-cloudformation-adds-support-for-amazon-api-gateway-and-updated-resource-support/">ApiGateway was added to cloudformation on April
+18th, 2016</a>.
+ As new features are added to cloudformation, you&rsquo;ll be stuck waiting for
+serverless to implement features for feature parity. I&rsquo;ve started using
+cloudformation direclty and relying on bash scripts for deployment. I&rsquo;m quite
+happy with the results.</p>
+
+<h3>Cloudformation stack</h3>
+
+<p>Once we have a
+<a href="https://github.com/tatums/cloudformation-apigateway-lambda/blob/master/cloudformation.json">cloudformation template</a>,
+the AWS cli provides us with everthing we need. Using the AWS CLI we can create the stack like so.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>aws cloudformation create-stack <span class="se">\</span>
+</span><span class='line'>  --stack-name hello-world <span class="se">\</span>
+</span><span class='line'>  --template-body file://./cloudformation.json <span class="se">\</span>
+</span><span class='line'>  --capabilities CAPABILITY_IAM <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws cloudformation <span class="nb">wait </span>stack-create-complete <span class="se">\</span>
+</span><span class='line'>      --stack-name hello-world
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first command fires off an async create request to AWS.
+The second command tells our shell to wait for stack creation to complete.</p>
+
+<p>After that&rsquo;s complete, we&rsquo;ll have created a few resources in AWS. =)  Next, we&rsquo;ll need a way to deploy.</p>
+
+<h3>Deployment</h3>
+
+<p>We have a few tasks for a complete deployment. We should seperate out the
+lambda depoyment and the ApiGateway deployment, but in this case I did not.</p>
+
+<ul>
+<li>Update Lambda Code - Install any dependencies, zip our code, and upload it.</li>
+<li>Publish a Version - From the latest version, It will tag a copy.</li>
+<li>Update the alias - Our lambda is pointed to an alias. This will point the lambda to our new version.</li>
+<li>deploy ApiGateway - Any changes we make to ApiGateway requires a deploy.</li>
+</ul>
+
+
+<p>The script takes two args. The <code>api-gateway-id</code> and the <code>function-name</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>./deploy.sh abc123 hello-word
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">apiId</span><span class="o">=</span><span class="nv">$1</span>
+</span><span class='line'><span class="nv">functionName</span><span class="o">=</span><span class="nv">$2</span>
+</span><span class='line'><span class="nv">profile</span><span class="o">=</span>personal
+</span><span class='line'>
+</span><span class='line'><span class="nv">YELLOW</span><span class="o">=</span><span class="s1">&#39;\033[0;33m&#39;</span>
+</span><span class='line'><span class="nv">WHITE</span><span class="o">=</span><span class="s1">&#39;\033[0m&#39;</span> <span class="c"># No Color</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> zipLambda <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Zipping files.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  rm -rf target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  mkdir -p target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  cp -r *.js package.json target/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="nb">pushd </span>target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  npm install --production <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  zip -r <span class="s2">&quot;${functionName}.zip&quot;</span> . <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="nb">popd</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> say <span class="o">{</span>
+</span><span class='line'>  <span class="nb">printf</span> <span class="s2">&quot;\n${YELLOW} $@ ${WHITE}\n&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> updateLambdaCode <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Uploading new lambda code.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda update-function-code --function-name <span class="nv">$functionName</span> --zip-file <span class="s2">&quot;fileb://target/${functionName}.zip&quot;</span> --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> publishVersion <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Publishing a new version.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda publish-version --function-name <span class="nv">$functionName</span> --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> updateAlias <span class="o">{</span>
+</span><span class='line'>  <span class="nv">version</span><span class="o">=</span><span class="k">$(</span>aws lambda list-versions-by-function --function-name <span class="nv">$functionName</span> --profile personal <span class="p">|</span> grep Version <span class="p">|</span> tail -n <span class="m">1</span> <span class="p">|</span> cut -d <span class="s1">&#39;&quot;&#39;</span> -f 4<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  say <span class="s2">&quot;Updating the alias to version ${version}.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda update-alias --function-name <span class="nv">$functionName</span> --function-version <span class="nv">$version</span> --name prod --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="k">function</span> deployApiGatway <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Deploying to Api Gateway.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws apigateway create-deployment --rest-api-id <span class="nv">$apiId</span> --stage-name v1 --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="nb">printf</span> <span class="s2">&quot;\n🚀🚀🚀 SHIP IT!!! 🚀🚀🚀 \n\n&quot;</span>
+</span><span class='line'>zipLambda <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  updateLambdaCode <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  publishVersion <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  updateAlias <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  deployApiGatway
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Tatum Szymczak</span></span>
+
+      on
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-25T07:44:12-05:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:44 am</span></time>
+      in
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/apigateway/'>apigateway</a>, <a class='category' href='/blog/categories/aws/'>aws</a>, <a class='category' href='/blog/categories/cloudformation/'>cloudformation</a>, <a class='category' href='/blog/categories/lambda/'>lambda</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/" data-via="" data-counturl="http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/08/15/dont-be-clever-stupid/" title="Previous Post: Don't be clever stupid">&laquo; Don&#8217;t be clever stupid</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo">
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tatumim';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/';
+        var disqus_url = 'http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

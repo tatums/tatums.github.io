@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Aws | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/aws/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Cloudformation | Helping me remember...]]></title>
+  <link href="http://www.tatum.im/blog/categories/cloudformation/atom.xml" rel="self"/>
   <link href="http://www.tatum.im/"/>
   <updated>2016-08-28T08:38:58-05:00</updated>
   <id>http://www.tatum.im/</id>
@@ -117,24 +117,6 @@ zipLambda &amp;&amp; \
   updateAlias &amp;&amp; \
   deployApiGatway
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hosting a Static Site on an S3 Bucket]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/"/>
-    <updated>2015-02-07T06:33:56-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket</id>
-    <content type="html"><![CDATA[<p>I love the recent shift from dynamic sites to static sites. This doesn&rsquo;t work for all sites. But why have a blog that gets dynamically build on each request.  It&rsquo;s Not needed.</p>
-
-<p>Amazon will host static sites on an S3 bucket and its dead simple. Awesome!</p>
-
-<ol>
-<li>Create a bucket and set as public host.</li>
-<li>Upload files and make them public.</li>
-<li>Profit.</li>
-</ol>
-
 ]]></content>
   </entry>
   

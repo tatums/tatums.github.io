@@ -9,7 +9,9 @@
   <meta name="author" content="Tatum Szymczak">
 
   
-  <meta name="description" content="Everyone loves clever, right!?. Well, DONT! A clever solution is technical debt. Any fool can write code that a computer can understand. Good &hellip;">
+  <meta name="description" content="Recently, I&rsquo;ve been excited by serverless
+technology. I began using the serverless framework
+for code boilerplate and deployment. After some &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,6 +95,201 @@
 
     <div class="blog-index">
       
+      
+      
+        <article>
+          
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/25/cloudformation-apigateway-and-lambda/">Cloudformation ApiGateway and Lambda</a></h1>
+    
+    
+      <p class="meta">
+
+        <i class="fa fa-calendar-o"></i>
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-25T07:44:12-05:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:44 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<hr>
+
+
+  <div class="entry-content"><p>Recently, I&rsquo;ve been excited by <a href="http://martinfowler.com/articles/serverless.html">serverless</a>
+technology. I began using the <a href="http://serverless.com/">serverless framework</a>
+for code boilerplate and deployment. After some time, I began feeling pain.
+Serverless is an excellent project, but it&rsquo;s moving <strong>very</strong> fast. For example, The
+framework uses cloudformation for resources your project will depend on.
+Cloudformation is also moving very fast. Support for <a href="https://aws.amazon.com/about-aws/whats-new/2016/04/aws-cloudformation-adds-support-for-amazon-api-gateway-and-updated-resource-support/">ApiGateway was added to cloudformation on April
+18th, 2016</a>.
+ As new features are added to cloudformation, you&rsquo;ll be stuck waiting for
+serverless to implement features for feature parity. I&rsquo;ve started using
+cloudformation direclty and relying on bash scripts for deployment. I&rsquo;m quite
+happy with the results.</p>
+
+<h3>Cloudformation stack</h3>
+
+<p>Once we have a
+<a href="https://github.com/tatums/cloudformation-apigateway-lambda/blob/master/cloudformation.json">cloudformation template</a>,
+the AWS cli provides us with everthing we need. Using the AWS CLI we can create the stack like so.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>aws cloudformation create-stack <span class="se">\</span>
+</span><span class='line'>  --stack-name hello-world <span class="se">\</span>
+</span><span class='line'>  --template-body file://./cloudformation.json <span class="se">\</span>
+</span><span class='line'>  --capabilities CAPABILITY_IAM <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws cloudformation <span class="nb">wait </span>stack-create-complete <span class="se">\</span>
+</span><span class='line'>      --stack-name hello-world
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first command fires off an async create request to AWS.
+The second command tells our shell to wait for stack creation to complete.</p>
+
+<p>After that&rsquo;s complete, we&rsquo;ll have created a few resources in AWS. =)  Next, we&rsquo;ll need a way to deploy.</p>
+
+<h3>Deployment</h3>
+
+<p>We have a few tasks for a complete deployment. We should seperate out the
+lambda depoyment and the ApiGateway deployment, but in this case I did not.</p>
+
+<ul>
+<li>Update Lambda Code - Install any dependencies, zip our code, and upload it.</li>
+<li>Publish a Version - From the latest version, It will tag a copy.</li>
+<li>Update the alias - Our lambda is pointed to an alias. This will point the lambda to our new version.</li>
+<li>deploy ApiGateway - Any changes we make to ApiGateway requires a deploy.</li>
+</ul>
+
+
+<p>The script takes two args. The <code>api-gateway-id</code> and the <code>function-name</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>./deploy.sh abc123 hello-word
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">apiId</span><span class="o">=</span><span class="nv">$1</span>
+</span><span class='line'><span class="nv">functionName</span><span class="o">=</span><span class="nv">$2</span>
+</span><span class='line'><span class="nv">profile</span><span class="o">=</span>personal
+</span><span class='line'>
+</span><span class='line'><span class="nv">YELLOW</span><span class="o">=</span><span class="s1">&#39;\033[0;33m&#39;</span>
+</span><span class='line'><span class="nv">WHITE</span><span class="o">=</span><span class="s1">&#39;\033[0m&#39;</span> <span class="c"># No Color</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> zipLambda <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Zipping files.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  rm -rf target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  mkdir -p target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  cp -r *.js package.json target/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="nb">pushd </span>target <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  npm install --production <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  zip -r <span class="s2">&quot;${functionName}.zip&quot;</span> . <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  <span class="nb">popd</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> say <span class="o">{</span>
+</span><span class='line'>  <span class="nb">printf</span> <span class="s2">&quot;\n${YELLOW} $@ ${WHITE}\n&quot;</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> updateLambdaCode <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Uploading new lambda code.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda update-function-code --function-name <span class="nv">$functionName</span> --zip-file <span class="s2">&quot;fileb://target/${functionName}.zip&quot;</span> --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> publishVersion <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Publishing a new version.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda publish-version --function-name <span class="nv">$functionName</span> --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> updateAlias <span class="o">{</span>
+</span><span class='line'>  <span class="nv">version</span><span class="o">=</span><span class="k">$(</span>aws lambda list-versions-by-function --function-name <span class="nv">$functionName</span> --profile personal <span class="p">|</span> grep Version <span class="p">|</span> tail -n <span class="m">1</span> <span class="p">|</span> cut -d <span class="s1">&#39;&quot;&#39;</span> -f 4<span class="k">)</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  say <span class="s2">&quot;Updating the alias to version ${version}.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws lambda update-alias --function-name <span class="nv">$functionName</span> --function-version <span class="nv">$version</span> --name prod --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="k">function</span> deployApiGatway <span class="o">{</span>
+</span><span class='line'>  say <span class="s2">&quot;Deploying to Api Gateway.&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  aws apigateway create-deployment --rest-api-id <span class="nv">$apiId</span> --stage-name v1 --profile <span class="nv">$profile</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="nb">printf</span> <span class="s2">&quot;\n🚀🚀🚀 SHIP IT!!! 🚀🚀🚀 \n\n&quot;</span>
+</span><span class='line'>zipLambda <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  updateLambdaCode <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  publishVersion <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  updateAlias <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>  deployApiGatway
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+        </article>
       
       
         <article>
@@ -938,47 +1135,6 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
 
         </article>
       
-      
-        <article>
-          
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/21/migrate-a-single-database-migration/">Migrate a Single Database Migration</a></h1>
-    
-    
-      <p class="meta">
-
-        <i class="fa fa-calendar-o"></i>
-        
-
-
-
-
-<time class='entry-date' datetime='2013-01-21T08:43:00-06:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>8:43 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-<hr>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">console</span>
-</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;db/migrate/20121130134444_add_column_backorder_to_orders.rb&quot;</span>
-</span><span class='line'><span class="no">AddColumnBackorderToOrders</span><span class="o">.</span><span class="n">up</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-        </article>
-      
       <div class="pagination">
         
           <a class="prev" href="/posts/2">&larr; Older</a>
@@ -1001,6 +1157,10 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/08/25/cloudformation-apigateway-and-lambda/">Cloudformation ApiGateway and Lambda</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/15/dont-be-clever-stupid/">Don&#8217;t Be Clever Stupid</a>
       </li>
     
@@ -1014,10 +1174,6 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
     
       <li class="post">
         <a href="/blog/2015/02/28/crypto/">Crypto</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/21/ssh-config/">Ssh Config</a>
       </li>
     
   </ul>
@@ -1051,23 +1207,6 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("tatumszymczak", , );
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <p>Follow <a href="http://twitter.com/tatumszymczak">@tatumszymczak</a></p>
-  
 </section>
 
 <aside>
