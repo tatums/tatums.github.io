@@ -8,10 +8,10 @@ categories: AWS cloudformation apigateway lambda
 
 Recently, I've been excited by [serverless](http://martinfowler.com/articles/serverless.html)
 technology. I began using the [serverless framework](http://serverless.com/)
-for code boilerplate and deployment. After some time, I began feeling pain.
+for code boilerplate and deployment. After some time using the framework, I began feeling pain.
 Serverless is an excellent project, but it's moving **very** fast. For example, The
-framework uses cloudformation for resources your project will depend on.
-Cloudformation is also moving very fast. Support for [ApiGateway was added to cloudformation on April
+framework uses cloudformation for resource dependencies such as dynamoDb, ApiGateway, roles and permissions (to name a few).
+Cloudformation is **also** moving very fast. Support for [ApiGateway was added to cloudformation on April
 18th, 2016](https://aws.amazon.com/about-aws/whats-new/2016/04/aws-cloudformation-adds-support-for-amazon-api-gateway-and-updated-resource-support/).
  As new features are added to cloudformation, you'll be stuck waiting for
 serverless to implement features for feature parity. I've started using
