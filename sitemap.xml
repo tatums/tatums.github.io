@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/</loc>
+<lastmod>2017-01-08T08:19:15-06:00</lastmod>
+</url>
+<url>
 <loc>http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/</loc>
 <lastmod>2016-08-25T07:44:12-05:00</lastmod>
 </url>
@@ -143,5 +147,11 @@
 </url>
 <url>
 <loc>http://www.tatum.im/blog/categories/lambda/</loc>
+</url>
+<url>
+<loc>http://www.tatum.im/blog/categories/admin/</loc>
+</url>
+<url>
+<loc>http://www.tatum.im/blog/categories/devops/</loc>
 </url>
 </urlset>
