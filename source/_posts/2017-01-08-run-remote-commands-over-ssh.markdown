@@ -14,10 +14,11 @@ In the example below, I wasnted to keep the configuration files in the git
 repository, but wanted a quick and dirty way to deploy the changes.
 
 The first half of the script copies files, using scp, from the local machine to
-the remove server.
+the remote server.
 
-The second half of the script is run in the context of the remote machine.  The files
-are moved to the correct locations and nginx and haproxy are restarted.
+The second half of the script (starting on line 12) runs commands from the
+remote machine.  The files are moved to the correct locations and nginx and
+haproxy are restarted.
 
 ```bash
 #!/bin/bash
