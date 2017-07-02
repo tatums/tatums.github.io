@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Admin | Helping me remember...]]></title>
   <link href="http://www.tatum.im/blog/categories/admin/atom.xml" rel="self"/>
   <link href="http://www.tatum.im/"/>
-  <updated>2017-07-02T08:36:03-05:00</updated>
+  <updated>2017-07-02T10:23:07-05:00</updated>
   <id>http://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
@@ -26,10 +26,11 @@ run command over SSH!</p>
 repository, but wanted a quick and dirty way to deploy the changes.</p>
 
 <p>The first half of the script copies files, using scp, from the local machine to
-the remove server.</p>
+the remote server.</p>
 
-<p>The second half of the script is run in the context of the remote machine.  The files
-are moved to the correct locations and nginx and haproxy are restarted.</p>
+<p>The second half of the script (starting on line 12) runs commands from the
+remote machine.  The files are moved to the correct locations and nginx and
+haproxy are restarted.</p>
 
 <pre><code class="bash">#!/bin/bash
 
