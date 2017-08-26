@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Helping me remember...]]></title>
-  <link href="http://www.tatum.im/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Run Remote Commands Over SSH!]]></title>
-    <link href="http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
+    <link href="https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
     <updated>2017-01-08T08:19:15-06:00</updated>
-    <id>http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
+    <id>https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
     <content type="html"><![CDATA[<p>Sometimes I find myself needing to run a few command on a remote machine. I&rsquo;ll
 usually ssh into the box and hack away. But, there is an a alternative. You can
 run command over SSH!</p>
@@ -79,9 +79,9 @@ haproxy are restarted.</p>
   
   <entry>
     <title type="html"><![CDATA[Cloudformation ApiGateway and Lambda]]></title>
-    <link href="http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/"/>
+    <link href="https://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/"/>
     <updated>2016-08-25T07:44:12-05:00</updated>
-    <id>http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda</id>
+    <id>https://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda</id>
     <content type="html"><![CDATA[<p>Recently, I&rsquo;ve been excited by <a href="http://martinfowler.com/articles/serverless.html">serverless</a>
 technology. I began using the <a href="http://serverless.com/">serverless framework</a>
 for code boilerplate and deployment. After some time using the framework, I began feeling pain.
@@ -249,9 +249,9 @@ lambda depoyment and the ApiGateway deployment, but in this case I did not.</p>
   
   <entry>
     <title type="html"><![CDATA[Don't Be Clever Stupid]]></title>
-    <link href="http://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid/"/>
+    <link href="https://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid/"/>
     <updated>2015-08-15T10:42:18-05:00</updated>
-    <id>http://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid</id>
+    <id>https://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid</id>
     <content type="html"><![CDATA[<p>Everyone loves clever, right!?. Well, DONT! A clever solution is technical debt.</p>
 
 <blockquote>
@@ -266,9 +266,9 @@ Good programmers write code that humans can understand. – Martin Fowler
   
   <entry>
     <title type="html"><![CDATA[ActiveModel::Model]]></title>
-    <link href="http://www.tatum.im/blog/2015/08/13/activemodel-model/"/>
+    <link href="https://www.tatum.im/blog/2015/08/13/activemodel-model/"/>
     <updated>2015-08-13T19:37:30-05:00</updated>
-    <id>http://www.tatum.im/blog/2015/08/13/activemodel-model</id>
+    <id>https://www.tatum.im/blog/2015/08/13/activemodel-model</id>
     <content type="html"><![CDATA[<p>Rails 4 brought us <code>ActiveModel::Model</code>. It provides a light weight interface that&rsquo;s similar to an <code>ActiveRecord::Base</code> model.</p>
 
 <p>for example, I can create a Person class like so.</p>
@@ -423,9 +423,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Rails Configuration]]></title>
-    <link href="http://www.tatum.im/blog/2015/03/14/rails-configuration/"/>
+    <link href="https://www.tatum.im/blog/2015/03/14/rails-configuration/"/>
     <updated>2015-03-14T10:25:26-05:00</updated>
-    <id>http://www.tatum.im/blog/2015/03/14/rails-configuration</id>
+    <id>https://www.tatum.im/blog/2015/03/14/rails-configuration</id>
     <content type="html"><![CDATA[<p>Occasionally I&rsquo;ll see things like this in a code base.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -480,9 +480,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Crypto]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/28/crypto/"/>
+    <link href="https://www.tatum.im/blog/2015/02/28/crypto/"/>
     <updated>2015-02-28T16:05:01-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/28/crypto</id>
+    <id>https://www.tatum.im/blog/2015/02/28/crypto</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been playing around with Public-key cryptography or asymmetric cryptography. With revaltions from Eric Snowden on programs like PRISM, I feel that encryption is more important than ever.</p>
 
 <p><em>From Wikipedia</em>
@@ -702,9 +702,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Ssh Config]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/21/ssh-config/"/>
+    <link href="https://www.tatum.im/blog/2015/02/21/ssh-config/"/>
     <updated>2015-02-21T07:15:39-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/21/ssh-config</id>
+    <id>https://www.tatum.im/blog/2015/02/21/ssh-config</id>
     <content type="html"><![CDATA[<p>I&rsquo;m in and out of servers all day.  One thing I&rsquo;ve found helpful is a ssh config file.  Create a file and place it <code>~/.ssh/config</code>.  You can add as many entries as you like.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -733,9 +733,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Standard Rails Create Action]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/11/rails-create-and-update/"/>
+    <link href="https://www.tatum.im/blog/2015/02/11/rails-create-and-update/"/>
     <updated>2015-02-11T15:43:24-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/11/rails-create-and-update</id>
+    <id>https://www.tatum.im/blog/2015/02/11/rails-create-and-update</id>
     <content type="html"><![CDATA[<p>Rails has taught me some really good best practices. Let&rsquo;s look at a default rails create action</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -826,10 +826,10 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Angularjs]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/10/angularjs/"/>
+    <link href="https://www.tatum.im/blog/2015/02/10/angularjs/"/>
     <updated>2015-02-10T20:57:17-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/10/angularjs</id>
-    <content type="html"><![CDATA[<p><img class="img-responsive pull-left" src="http://www.tatum.im/images/content/angularjs.png"></p>
+    <id>https://www.tatum.im/blog/2015/02/10/angularjs</id>
+    <content type="html"><![CDATA[<p><img class="img-responsive pull-left" src="https://www.tatum.im/images/content/angularjs.png"></p>
 
 <p>Lately I&rsquo;ve been writing a lot of angularjs.  At my work, we had a great debeate.. which client side framework should we use.  It came down to angularjs or ember. Ultimately, we choose angular.  I&rsquo;m happy we did.  Angularjs is awesome.  I would have been just as happy to settle with ember. Two way binding is a game changer.</p>
 
@@ -839,20 +839,20 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Message of the Day]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
+    <link href="https://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
     <updated>2015-02-07T10:23:44-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
+    <id>https://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
     <content type="html"><![CDATA[<p>Lately I&rsquo;ve been doing a lot of server administration. It can be a lot of fun automating systems. One thing I&rsquo;ve found super valuable is to setup a &ldquo;message of the day&rdquo; file. This will display immediately after login and can be found in <code>/etc/motd</code>.  I like to put notes/documentation here. For example, I&rsquo;ll put in how to restart redis, how to tag a deploy, or the path to the app.</p>
 
-<p><img class="img-responsive" src="http://www.tatum.im/images/content/motd.png"></p>
+<p><img class="img-responsive" src="https://www.tatum.im/images/content/motd.png"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Hosting a Static Site on an S3 Bucket]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/"/>
+    <link href="https://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket/"/>
     <updated>2015-02-07T06:33:56-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket</id>
+    <id>https://www.tatum.im/blog/2015/02/07/hosting-a-static-site-on-an-s3-bucket</id>
     <content type="html"><![CDATA[<p>I love the recent shift from dynamic sites to static sites. This doesn&rsquo;t work for all sites. But why have a blog that gets dynamically build on each request.  It&rsquo;s Not needed.</p>
 
 <p>Amazon will host static sites on an S3 bucket and its dead simple. Awesome!</p>
@@ -868,9 +868,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Migrate a Single Database Migration]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration/"/>
+    <link href="https://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration/"/>
     <updated>2013-01-21T08:43:00-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration</id>
+    <id>https://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -884,9 +884,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Convert a Date String to Ruby Date]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date/"/>
+    <link href="https://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date/"/>
     <updated>2013-01-15T08:54:26-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date</id>
+    <id>https://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -900,9 +900,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Form Helper From Console]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/14/form-helper-from-console/"/>
+    <link href="https://www.tatum.im/blog/2013/01/14/form-helper-from-console/"/>
     <updated>2013-01-14T09:00:54-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/14/form-helper-from-console</id>
+    <id>https://www.tatum.im/blog/2013/01/14/form-helper-from-console</id>
     <content type="html"><![CDATA[<p>From the rails console.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -918,9 +918,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Set Default Value in Rails Model]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/14/set-default-value-in-rails-model/"/>
+    <link href="https://www.tatum.im/blog/2013/01/14/set-default-value-in-rails-model/"/>
     <updated>2013-01-14T08:00:37-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/14/set-default-value-in-rails-model</id>
+    <id>https://www.tatum.im/blog/2013/01/14/set-default-value-in-rails-model</id>
     <content type="html"><![CDATA[<p>I like to set default values in my models. This is the method I like to use.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -940,9 +940,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Failed to Connect to a Master Node at Localhost:27017]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017/"/>
+    <link href="https://www.tatum.im/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017/"/>
     <updated>2012-12-31T09:05:06-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017</id>
+    <id>https://www.tatum.im/blog/2012/12/31/failed-to-connect-to-a-master-node-at-localhost-27017</id>
     <content type="html"><![CDATA[<p>Everytime my server looses power, Mongo has trouble restarting. These commands fixes the problem.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -963,9 +963,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Install Elastic Search on Ubuntu]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
+    <link href="https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
     <updated>2012-12-30T09:07:42-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
+    <id>https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
     <content type="html"><![CDATA[<p>Update Package Manager</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1018,9 +1018,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Ubuntu Ip-address]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/16/ubuntu-ip-address/"/>
+    <link href="https://www.tatum.im/blog/2012/12/16/ubuntu-ip-address/"/>
     <updated>2012-12-16T09:14:33-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/16/ubuntu-ip-address</id>
+    <id>https://www.tatum.im/blog/2012/12/16/ubuntu-ip-address</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo vim /etc/network/interfaces
 </span></code></pre></td></tr></table></div></figure>
@@ -1061,9 +1061,9 @@ Lets say I have 2 ActiveRecord classes <code>Org</code> and <code>User</code></p
   
   <entry>
     <title type="html"><![CDATA[Add Public Ssh Key to Server]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
+    <link href="https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
     <updated>2012-12-16T09:11:56-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
+    <id>https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">cat</span> <span class="o">~</span><span class="sr">/.ssh/i</span><span class="n">d_rsa</span><span class="o">.</span><span class="n">pub</span> <span class="o">|</span> <span class="n">ssh</span> <span class="n">user</span><span class="vi">@hostname</span> <span class="s1">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span>
 </span></code></pre></td></tr></table></div></figure>

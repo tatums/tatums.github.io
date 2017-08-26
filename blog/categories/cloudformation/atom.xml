@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Cloudformation | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/cloudformation/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/cloudformation/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Cloudformation ApiGateway and Lambda]]></title>
-    <link href="http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/"/>
+    <link href="https://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda/"/>
     <updated>2016-08-25T07:44:12-05:00</updated>
-    <id>http://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda</id>
+    <id>https://www.tatum.im/blog/2016/08/25/cloudformation-apigateway-and-lambda</id>
     <content type="html"><![CDATA[<p>Recently, I&rsquo;ve been excited by <a href="http://martinfowler.com/articles/serverless.html">serverless</a>
 technology. I began using the <a href="http://serverless.com/">serverless framework</a>
 for code boilerplate and deployment. After some time using the framework, I began feeling pain.

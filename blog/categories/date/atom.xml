@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Date | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/date/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/date/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Convert a Date String to Ruby Date]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date/"/>
+    <link href="https://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date/"/>
     <updated>2013-01-15T08:54:26-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date</id>
+    <id>https://www.tatum.im/blog/2013/01/15/convert-a-date-string-to-ruby-date</id>
     <content type="html"><![CDATA[<pre><code class="ruby">Date.parse '2013/1/15'
 
 DateTime.parse('2013/1/15'+'-23:59:59-6:00')

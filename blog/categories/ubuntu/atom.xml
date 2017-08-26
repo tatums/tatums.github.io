@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ubuntu | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/ubuntu/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Install Elastic Search on Ubuntu]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
+    <link href="https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
     <updated>2012-12-30T09:07:42-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
+    <id>https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
     <content type="html"><![CDATA[<p>Update Package Manager</p>
 
 <pre><code class="bash">sudo apt-get update

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Stuff | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/stuff/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/stuff/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Message of the Day]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
+    <link href="https://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
     <updated>2015-02-07T10:23:44-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
+    <id>https://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
     <content type="html"><![CDATA[<p>Lately I&rsquo;ve been doing a lot of server administration. It can be a lot of fun automating systems. One thing I&rsquo;ve found super valuable is to setup a &ldquo;message of the day&rdquo; file. This will display immediately after login and can be found in <code>/etc/motd</code>.  I like to put notes/documentation here. For example, I&rsquo;ll put in how to restart redis, how to tag a deploy, or the path to the app.</p>
 
 <p><img class="img-responsive" src="/images/content/motd.png"></p>

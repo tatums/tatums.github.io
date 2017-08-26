@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ssh Config]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/21/ssh-config/"/>
+    <link href="https://www.tatum.im/blog/2015/02/21/ssh-config/"/>
     <updated>2015-02-21T07:15:39-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/21/ssh-config</id>
+    <id>https://www.tatum.im/blog/2015/02/21/ssh-config</id>
     <content type="html"><![CDATA[<p>I&rsquo;m in and out of servers all day.  One thing I&rsquo;ve found helpful is a ssh config file.  Create a file and place it <code>~/.ssh/config</code>.  You can add as many entries as you like.</p>
 
 <pre><code>Host s3-rsync
@@ -42,9 +42,9 @@
   
   <entry>
     <title type="html"><![CDATA[Message of the Day]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
+    <link href="https://www.tatum.im/blog/2015/02/07/message-of-the-day/"/>
     <updated>2015-02-07T10:23:44-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
+    <id>https://www.tatum.im/blog/2015/02/07/message-of-the-day</id>
     <content type="html"><![CDATA[<p>Lately I&rsquo;ve been doing a lot of server administration. It can be a lot of fun automating systems. One thing I&rsquo;ve found super valuable is to setup a &ldquo;message of the day&rdquo; file. This will display immediately after login and can be found in <code>/etc/motd</code>.  I like to put notes/documentation here. For example, I&rsquo;ll put in how to restart redis, how to tag a deploy, or the path to the app.</p>
 
 <p><img class="img-responsive" src="/images/content/motd.png"></p>
@@ -53,9 +53,9 @@
   
   <entry>
     <title type="html"><![CDATA[Install Elastic Search on Ubuntu]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
+    <link href="https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu/"/>
     <updated>2012-12-30T09:07:42-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
+    <id>https://www.tatum.im/blog/2012/12/30/install-elastic-search-on-ubuntu</id>
     <content type="html"><![CDATA[<p>Update Package Manager</p>
 
 <pre><code class="bash">sudo apt-get update
@@ -90,9 +90,9 @@ curl http://localhost:9200
   
   <entry>
     <title type="html"><![CDATA[Ubuntu Ip-address]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/16/ubuntu-ip-address/"/>
+    <link href="https://www.tatum.im/blog/2012/12/16/ubuntu-ip-address/"/>
     <updated>2012-12-16T09:14:33-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/16/ubuntu-ip-address</id>
+    <id>https://www.tatum.im/blog/2012/12/16/ubuntu-ip-address</id>
     <content type="html"><![CDATA[<pre><code class="bash">sudo vim /etc/network/interfaces
 </code></pre>
 
@@ -115,9 +115,9 @@ gateway 192.168.1.1
   
   <entry>
     <title type="html"><![CDATA[Add Public Ssh Key to Server]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
+    <link href="https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
     <updated>2012-12-16T09:11:56-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
+    <id>https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
     <content type="html"><![CDATA[<pre><code class="ruby">cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat &gt;&gt; .ssh/authorized_keys'
 </code></pre>
 ]]></content>

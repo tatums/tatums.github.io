@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Migration | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/migration/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/migration/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrate a Single Database Migration]]></title>
-    <link href="http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration/"/>
+    <link href="https://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration/"/>
     <updated>2013-01-21T08:43:00-06:00</updated>
-    <id>http://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration</id>
+    <id>https://www.tatum.im/blog/2013/01/21/migrate-a-single-database-migration</id>
     <content type="html"><![CDATA[<pre><code class="ruby">rails console
 require "db/migrate/20121130134444_add_column_backorder_to_orders.rb"
 AddColumnBackorderToOrders.up

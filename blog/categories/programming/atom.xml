@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Programming | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/programming/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Don't Be Clever Stupid]]></title>
-    <link href="http://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid/"/>
+    <link href="https://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid/"/>
     <updated>2015-08-15T10:42:18-05:00</updated>
-    <id>http://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid</id>
+    <id>https://www.tatum.im/blog/2015/08/15/dont-be-clever-stupid</id>
     <content type="html"><![CDATA[<p>Everyone loves clever, right!?. Well, DONT! A clever solution is technical debt.</p>
 
 <blockquote>

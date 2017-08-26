@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Encryption | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/encryption/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/encryption/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Crypto]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/28/crypto/"/>
+    <link href="https://www.tatum.im/blog/2015/02/28/crypto/"/>
     <updated>2015-02-28T16:05:01-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/28/crypto</id>
+    <id>https://www.tatum.im/blog/2015/02/28/crypto</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been playing around with Public-key cryptography or asymmetric cryptography. With revaltions from Eric Snowden on programs like PRISM, I feel that encryption is more important than ever.</p>
 
 <p><em>From Wikipedia</em>

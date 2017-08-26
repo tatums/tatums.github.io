@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ssh | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/ssh/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/ssh/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Run Remote Commands Over SSH!]]></title>
-    <link href="http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
+    <link href="https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
     <updated>2017-01-08T08:19:15-06:00</updated>
-    <id>http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
+    <id>https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
     <content type="html"><![CDATA[<p>Sometimes I find myself needing to run a few command on a remote machine. I&rsquo;ll
 usually ssh into the box and hack away. But, there is an a alternative. You can
 run command over SSH!</p>
@@ -58,9 +58,9 @@ EOF
   
   <entry>
     <title type="html"><![CDATA[Ssh Config]]></title>
-    <link href="http://www.tatum.im/blog/2015/02/21/ssh-config/"/>
+    <link href="https://www.tatum.im/blog/2015/02/21/ssh-config/"/>
     <updated>2015-02-21T07:15:39-06:00</updated>
-    <id>http://www.tatum.im/blog/2015/02/21/ssh-config</id>
+    <id>https://www.tatum.im/blog/2015/02/21/ssh-config</id>
     <content type="html"><![CDATA[<p>I&rsquo;m in and out of servers all day.  One thing I&rsquo;ve found helpful is a ssh config file.  Create a file and place it <code>~/.ssh/config</code>.  You can add as many entries as you like.</p>
 
 <pre><code>Host s3-rsync
@@ -85,9 +85,9 @@ EOF
   
   <entry>
     <title type="html"><![CDATA[Add Public Ssh Key to Server]]></title>
-    <link href="http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
+    <link href="https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server/"/>
     <updated>2012-12-16T09:11:56-06:00</updated>
-    <id>http://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
+    <id>https://www.tatum.im/blog/2012/12/16/add-public-ssh-key-to-server</id>
     <content type="html"><![CDATA[<pre><code class="ruby">cat ~/.ssh/id_rsa.pub | ssh user@hostname 'cat &gt;&gt; .ssh/authorized_keys'
 </code></pre>
 ]]></content>

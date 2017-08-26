@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Devops | Helping me remember...]]></title>
-  <link href="http://www.tatum.im/blog/categories/devops/atom.xml" rel="self"/>
-  <link href="http://www.tatum.im/"/>
-  <updated>2017-08-26T08:09:45-05:00</updated>
-  <id>http://www.tatum.im/</id>
+  <link href="https://www.tatum.im/blog/categories/devops/atom.xml" rel="self"/>
+  <link href="https://www.tatum.im/"/>
+  <updated>2017-08-26T09:48:39-05:00</updated>
+  <id>https://www.tatum.im/</id>
   <author>
     <name><![CDATA[Tatum Szymczak]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Run Remote Commands Over SSH!]]></title>
-    <link href="http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
+    <link href="https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh/"/>
     <updated>2017-01-08T08:19:15-06:00</updated>
-    <id>http://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
+    <id>https://www.tatum.im/blog/2017/01/08/run-remote-commands-over-ssh</id>
     <content type="html"><![CDATA[<p>Sometimes I find myself needing to run a few command on a remote machine. I&rsquo;ll
 usually ssh into the box and hack away. But, there is an a alternative. You can
 run command over SSH!</p>
